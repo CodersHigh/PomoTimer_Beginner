@@ -43,13 +43,27 @@ class Pomodoro : NSObject {
     }
 
     var type : PomoType!
-    var status : Status
+    
+    var status : Status {
+        didSet {
+            if oldValue == .READY && status == .COUNTING {
+                self.startDate = NSDate()
+            }
+            if oldValue == .COUNTING && status == .DONE {
+                self.endDate = NSDate()
+            }
+        }
+    }
+    
     var timeString : String { get{
         let minute:Int = time/60
         let second:Int = time%60
         let _timeString = String(format: "%.2d:%.2d", minute, second)
         return _timeString
     }}
+    
+    var startDate:NSDate?
+    var endDate:NSDate?
     
     init(type : PomoType) {
         self.status = .READY
@@ -81,6 +95,14 @@ class Cycle : NSObject {
 //    }
     override init () {
         pomodoroArray = [Pomodoro(type:.Task), Pomodoro(type:.SBreak), Pomodoro(type:.Task), Pomodoro(type:.SBreak), Pomodoro(type:.Task), Pomodoro(type:.SBreak), Pomodoro(type:.Task), Pomodoro(type:.LBreak),]
+    }
+    
+    convenience init(done:Bool) {
+        self.init()
+        for pomodoro in pomodoroArray {
+            pomodoro.status = .DONE
+            pomodoro.time = 0
+        }
     }
     
     var tasks : [Pomodoro] {  get {

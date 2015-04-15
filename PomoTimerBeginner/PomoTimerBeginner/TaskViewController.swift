@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TaskViewController: UIViewController {
     
     @IBOutlet weak var cycleCountButton: CircleButton!
     @IBOutlet weak var timeLabel: UILabel!
@@ -24,10 +24,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        currentCycle = Cycle()
-        todays += [currentCycle]
+        if currentCycle == nil {
+            currentCycle = Cycle()
+            todays += [currentCycle]
+        }
     }
-
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateUI()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,9 +70,17 @@ class ViewController: UIViewController {
                 self.pomodoroImages[workingTask].layer.addAnimation(animation, forKey:"pulse")
             }
         } else {
-            startPauseButton.setTitle("Resume", forState: .Normal)
+            if let currentTask = currentCycle.currentTask {
+                if currentTask.status == .PAUSE {
+                    startPauseButton.setTitle("Resume", forState: .Normal)
+                } else {
+                    startPauseButton.setTitle("Start", forState: .Normal)
+                }
+            }
         }
-        timeLabel.text = currentCycle.currentTask?.timeString
+        if let currentTask = currentCycle.currentTask {
+            timeLabel.text = currentTask.timeString
+        }
         cycleCountButton.setTitle("\(todays.count-1)", forState: .Normal)
         
     }
@@ -93,7 +106,7 @@ class ViewController: UIViewController {
         }
         currentCycle.resetTask()
         updateUI()
-        startPauseButton.setTitle("Start", forState: .Normal)
+        //startPauseButton.setTitle("Start", forState: .Normal)
     }
     
     

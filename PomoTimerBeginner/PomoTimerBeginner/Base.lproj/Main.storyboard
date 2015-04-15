@@ -5,10 +5,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Task View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PomoTimerBeginner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TaskViewController" customModule="PomoTimerBeginner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -128,10 +128,10 @@
                         <outlet property="cycleCountButton" destination="nWZ-aw-D6s" id="Vns-EI-BuN"/>
                         <outlet property="startPauseButton" destination="O1O-KM-SLD" id="euK-Sa-Pgp"/>
                         <outlet property="timeLabel" destination="FIX-j3-HYs" id="5Nt-Zj-S3x"/>
-                        <outletCollection property="pomodoroImages" destination="Oko-fh-piU" id="Dxh-u7-Afr"/>
-                        <outletCollection property="pomodoroImages" destination="v3W-8g-hgk" id="K5y-BM-eHf"/>
-                        <outletCollection property="pomodoroImages" destination="18C-6l-SZx" id="klO-Vm-Yii"/>
-                        <outletCollection property="pomodoroImages" destination="FCG-eU-huC" id="VwV-Vq-dhH"/>
+                        <outletCollection property="pomodoroImages" destination="Oko-fh-piU" collectionClass="NSMutableArray" id="Dxh-u7-Afr"/>
+                        <outletCollection property="pomodoroImages" destination="v3W-8g-hgk" collectionClass="NSMutableArray" id="K5y-BM-eHf"/>
+                        <outletCollection property="pomodoroImages" destination="18C-6l-SZx" collectionClass="NSMutableArray" id="klO-Vm-Yii"/>
+                        <outletCollection property="pomodoroImages" destination="FCG-eU-huC" collectionClass="NSMutableArray" id="VwV-Vq-dhH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
