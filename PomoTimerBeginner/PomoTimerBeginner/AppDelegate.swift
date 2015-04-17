@@ -76,12 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func dateToString(date : NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.stringFromDate(date)
-    }
-    
     func todayPomodoroInfo () -> [String:Int] {
         let taskVC = window?.rootViewController as TaskViewController
         var infoDictionary:[String:Int] = [:]
@@ -111,3 +105,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+func dateToString(date : NSDate) -> String {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    return dateFormatter.stringFromDate(date)
+}

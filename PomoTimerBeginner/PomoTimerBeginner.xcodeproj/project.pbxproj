@@ -15,6 +15,7 @@
 		2C9722531ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9722521ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift */; };
 		2C97225D1ADBEAB0008D1671 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */; };
 		2C97225F1ADCCCA1008D1671 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225E1ADCCCA1008D1671 /* RoundButton.swift */; };
+		2CD9ABE51ADF6CE8008EF86F /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		2C9722521ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoTimerBeginnerTests.swift; sourceTree = "<group>"; };
 		2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 		2C97225E1ADCCCA1008D1671 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */,
 				2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */,
+				2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */,
 				2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */,
 				2C97225E1ADCCCA1008D1671 /* RoundButton.swift */,
 				2C9722401ADBE9D8008D1671 /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				2C97223F1ADBE9D8008D1671 /* TaskViewController.swift in Sources */,
 				2C97225D1ADBEAB0008D1671 /* Pomodoro.swift in Sources */,
 				2C97223D1ADBE9D8008D1671 /* AppDelegate.swift in Sources */,
+				2CD9ABE51ADF6CE8008EF86F /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -23,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="120" id="4rI-gT-AEh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="110"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1O-KM-SLD" customClass="RoundButton" customModule="PomoTimerBeginner" customModuleProvider="target">
@@ -89,6 +91,11 @@
                                         <state key="normal" title="0">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="SV7-gR-c8a" kind="popoverPresentation" popoverAnchorView="nWZ-aw-D6s" id="VZq-Hd-tzf">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,6 +144,142 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="349" y="519"/>
+        </scene>
+        <!--뽀모도로 기록-->
+        <scene sceneID="wjs-Gd-BXE">
+            <objects>
+                <tableViewController id="Tqn-hY-ftR" customClass="HistoryTableViewController" customModule="PomoTimerBeginner" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" id="zo4-bY-wxW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="58" id="rgF-Xa-34K" customClass="HistoryTableViewCell" customModule="PomoTimerBeginner" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rgF-Xa-34K" id="8xA-bp-p1D">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tm6-GI-WKo">
+                                            <rect key="frame" x="64" y="-1" width="256" height="60"/>
+                                            <subviews>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="ew2-m0-6vY">
+                                                    <rect key="frame" x="204" y="21" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="PNp-nD-EBv"/>
+                                                        <constraint firstAttribute="width" constant="20" id="ZwR-5R-sYZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="eVE-2x-wkd">
+                                                    <rect key="frame" x="160" y="21" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="irq-Wo-NX0"/>
+                                                        <constraint firstAttribute="height" constant="20" id="z3b-CH-moL"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="RU0-Da-lZr">
+                                                    <rect key="frame" x="118" y="21" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="nW1-z2-JmP"/>
+                                                        <constraint firstAttribute="height" constant="20" id="yRK-U5-znC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-iQ-ChO">
+                                                    <rect key="frame" x="76" y="21" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="Lrt-ww-63k"/>
+                                                        <constraint firstAttribute="height" constant="20" id="Mf5-JN-BQC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUy-A1-seQ" customClass="CircleButton" customModule="PomoTimerBeginner" customModuleProvider="target">
+                                                    <rect key="frame" x="22" y="11" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="0Lh-z8-2Bt"/>
+                                                        <constraint firstAttribute="width" constant="40" id="sWP-8O-fwo"/>
+                                                    </constraints>
+                                                    <state key="normal" title="0">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="y2b-iQ-ChO" firstAttribute="centerX" secondItem="tm6-GI-WKo" secondAttribute="trailing" multiplier="2/6" id="7pL-KM-tae"/>
+                                                <constraint firstAttribute="centerY" secondItem="eVE-2x-wkd" secondAttribute="centerY" id="83L-oJ-Tc6"/>
+                                                <constraint firstItem="RU0-Da-lZr" firstAttribute="centerX" secondItem="tm6-GI-WKo" secondAttribute="trailing" multiplier="3/6" id="9ml-YN-bY7"/>
+                                                <constraint firstItem="ew2-m0-6vY" firstAttribute="centerX" secondItem="tm6-GI-WKo" secondAttribute="trailing" multiplier="5/6" id="ATi-hH-MhD"/>
+                                                <constraint firstItem="eVE-2x-wkd" firstAttribute="centerX" secondItem="tm6-GI-WKo" secondAttribute="trailing" multiplier="4/6" id="G6l-lF-OI5"/>
+                                                <constraint firstAttribute="centerY" secondItem="ew2-m0-6vY" secondAttribute="centerY" id="O8B-Gg-YTf"/>
+                                                <constraint firstAttribute="height" constant="60" id="QQx-A6-B7b"/>
+                                                <constraint firstAttribute="centerY" secondItem="y2b-iQ-ChO" secondAttribute="centerY" id="d2y-uM-CXj"/>
+                                                <constraint firstItem="DUy-A1-seQ" firstAttribute="centerX" secondItem="tm6-GI-WKo" secondAttribute="trailing" multiplier="1/6" id="pIp-fM-sFV"/>
+                                                <constraint firstAttribute="centerY" secondItem="DUy-A1-seQ" secondAttribute="centerY" id="pcB-3D-Y2H"/>
+                                                <constraint firstAttribute="centerY" secondItem="RU0-Da-lZr" secondAttribute="centerY" id="xQp-Lb-6Ud"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbu-Vp-X32">
+                                            <rect key="frame" x="16" y="18" width="40" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="776-7k-RvY"/>
+                                                <constraint firstAttribute="width" constant="40" id="uUT-oi-lr3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                            <color key="textColor" red="0.31372549020000001" green="0.38431372549999998" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="Bbu-Vp-X32" secondAttribute="centerY" id="KS9-NH-xXE"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tm6-GI-WKo" secondAttribute="trailing" constant="-8" id="QtF-m2-RFT"/>
+                                        <constraint firstItem="Bbu-Vp-X32" firstAttribute="leading" secondItem="8xA-bp-p1D" secondAttribute="leadingMargin" constant="8" id="X2K-gf-ugm"/>
+                                        <constraint firstAttribute="centerY" secondItem="tm6-GI-WKo" secondAttribute="centerY" constant="-0.5" id="ir7-ah-d2D"/>
+                                        <constraint firstItem="tm6-GI-WKo" firstAttribute="leading" secondItem="Bbu-Vp-X32" secondAttribute="trailing" priority="750" constant="8" symbolic="YES" id="me3-8g-Dt8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cycleButton" destination="DUy-A1-seQ" id="Os3-al-dNV"/>
+                                    <outlet property="dateLabel" destination="Bbu-Vp-X32" id="aKv-Lj-SGG"/>
+                                    <outletCollection property="pomodoroImages" destination="y2b-iQ-ChO" collectionClass="NSMutableArray" id="Eas-y0-HoE"/>
+                                    <outletCollection property="pomodoroImages" destination="RU0-Da-lZr" collectionClass="NSMutableArray" id="5EV-DL-BPJ"/>
+                                    <outletCollection property="pomodoroImages" destination="eVE-2x-wkd" collectionClass="NSMutableArray" id="CjS-z7-cqE"/>
+                                    <outletCollection property="pomodoroImages" destination="ew2-m0-6vY" collectionClass="NSMutableArray" id="CEN-Na-b4I"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Tqn-hY-ftR" id="gjv-wQ-K0I"/>
+                            <outlet property="delegate" destination="Tqn-hY-ftR" id="j1N-0C-Jxp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="뽀모도로 기록" id="74l-3b-XC0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="KDA-KP-llP">
+                            <connections>
+                                <action selector="dismiss:" destination="Tqn-hY-ftR" id="fwF-tN-Mw6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qaj-Kc-6ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752" y="519"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="I7v-X5-aNG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SV7-gR-c8a" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tzQ-Qr-eQU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tqn-hY-ftR" kind="relationship" relationship="rootViewController" id="OPw-Xj-JhN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ju-xK-fGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="519"/>
         </scene>
     </scenes>
     <resources>

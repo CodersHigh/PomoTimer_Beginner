@@ -36,6 +36,11 @@ class RoundButton: UIButton {
 class CircleButton: UIButton {
     
     override func awakeFromNib() {
+
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         self.layer.cornerRadius = self.bounds.size.width/2
         self.layer.borderWidth = 2
         self.layer.borderColor = self.tintColor?.CGColor
