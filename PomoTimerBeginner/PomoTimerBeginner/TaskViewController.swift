@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TaskViewController: UIViewController {
     
@@ -17,13 +18,13 @@ class TaskViewController: UIViewController {
     @IBOutlet var pomodoroImages: [UIImageView]!
     
     
-    var currentCycle : Cycle!
+    var currentCycle:Cycle!
     var todays:[Cycle] = []
-    var timer : NSTimer?
+    var timer:NSTimer?
+    var audioPlayer:PomoAudioPlayer = PomoAudioPlayer() //환경설정에서 오디오가 없으면 초기화 하지 않아도 되겠지
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         if currentCycle == nil {
             currentCycle = Cycle()
             todays += [currentCycle]
@@ -35,7 +36,6 @@ class TaskViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func updateTask() {
@@ -82,9 +82,23 @@ class TaskViewController: UIViewController {
             timeLabel.text = currentTask.timeString
         }
         cycleCountButton.setTitle("\(todays.count-1)", forState: .Normal)
-        
+        updateAudio()
     }
     
+    func updateAudio () {
+        if let currentTask = currentCycle.currentTask {
+            switch currentTask.status{
+                case .COUNTING:
+                    audioPlayer.playTick(currentTask)
+                    if currentTask.time == 60 { audioPlayer.playChime() }
+                case .PAUSE:
+                    audioPlayer.stopTick(currentTask)
+                case .DONE:
+                    println("Done chatched")
+                default: ()
+            }
+        }
+    }
     @IBAction func toggleStart(sender: AnyObject) {
         if let activeTimer = timer {
             activeTimer.invalidate()
@@ -112,3 +126,69 @@ class TaskViewController: UIViewController {
     
 }
 
+
+class PomoAudioPlayer {
+    var taskTickPlayer:AVAudioPlayer
+    var taskTickRushPlayer:AVAudioPlayer
+    var breakTickPlayer:AVAudioPlayer
+    var minuteBellPlayer:AVAudioPlayer
+    var timeoutBellPlayer:AVAudioPlayer
+    //var alarmPlayer:AVAudioPlayer
+
+    init() {
+        let tastTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_medium", withExtension: "aiff")!
+        taskTickPlayer = AVAudioPlayer(contentsOfURL:tastTickFile, error: nil)
+        taskTickPlayer.volume = 1.0
+        taskTickPlayer.numberOfLoops = -1
+
+        let tastTickRushFile:NSURL = NSBundle.mainBundle().URLForResource("tick_hurry", withExtension: "aiff")!
+        taskTickRushPlayer = AVAudioPlayer(contentsOfURL:tastTickRushFile, error: nil)
+        taskTickRushPlayer.volume = 1.0
+        taskTickRushPlayer.numberOfLoops = -1
+        
+        let breakTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_second", withExtension: "aiff")!
+        breakTickPlayer = AVAudioPlayer(contentsOfURL:breakTickFile, error: nil)
+        breakTickPlayer.volume = 1.0
+        breakTickPlayer.numberOfLoops = -1
+        
+        let minuteBellFile:NSURL = NSBundle.mainBundle().URLForResource("beep_short", withExtension: "aiff")!
+        minuteBellPlayer = AVAudioPlayer(contentsOfURL:minuteBellFile, error: nil)
+        minuteBellPlayer.volume = 1.0
+        minuteBellPlayer.numberOfLoops = 1
+        
+        let timeoutBellFile:NSURL = NSBundle.mainBundle().URLForResource("bell_moderate", withExtension: "aiff")!
+        timeoutBellPlayer = AVAudioPlayer(contentsOfURL:timeoutBellFile, error: nil)
+        timeoutBellPlayer.volume = 1.0
+        timeoutBellPlayer.numberOfLoops = 0
+    }
+    
+    func playTick(task:Pomodoro) {
+        switch task.type! {
+        case .Task:
+            if task.time > 60 {
+                if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
+                if taskTickPlayer.playing == false {
+                    taskTickPlayer.play()
+                }
+            } else {
+                if taskTickPlayer.playing { taskTickPlayer.stop() }
+                if taskTickRushPlayer.playing == false {
+                    taskTickRushPlayer.play()
+                }
+            }
+            
+        default:
+            breakTickPlayer.play()
+        }
+    }
+    
+    func stopTick(task:Pomodoro) {
+        if taskTickPlayer.playing {
+            taskTickPlayer.stop()
+        }
+    }
+    
+    func playChime() {
+        minuteBellPlayer.play()
+    }
+}

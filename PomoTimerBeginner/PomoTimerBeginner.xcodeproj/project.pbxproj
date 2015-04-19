@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C772EB11AE141D000974536 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EB01AE141D000974536 /* Settings.bundle */; };
+		2C772EB51AE34E4800974536 /* beep_short.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EB21AE34E4800974536 /* beep_short.aiff */; };
+		2C772EB61AE34E4800974536 /* tick_fast.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EB31AE34E4800974536 /* tick_fast.aiff */; };
+		2C772EB71AE34E4800974536 /* tick_hurry.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EB41AE34E4800974536 /* tick_hurry.aiff */; };
+		2C772EBA1AE34E8200974536 /* bell_long.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EB81AE34E8200974536 /* bell_long.aiff */; };
+		2C772EBB1AE34E8200974536 /* bell_moderate.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EB91AE34E8200974536 /* bell_moderate.aiff */; };
+		2C772EBD1AE351F400974536 /* tick_second.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EBC1AE351F400974536 /* tick_second.aiff */; };
+		2C772EBF1AE3520A00974536 /* tick_medium.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2C772EBE1AE3520A00974536 /* tick_medium.aiff */; };
 		2C97223D1ADBE9D8008D1671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */; };
 		2C97223F1ADBE9D8008D1671 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */; };
 		2C9722421ADBE9D8008D1671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9722401ADBE9D8008D1671 /* Main.storyboard */; };
@@ -29,6 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C772EB01AE141D000974536 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = PomoTimerBeginner/Settings.bundle; sourceTree = "<group>"; };
+		2C772EB21AE34E4800974536 /* beep_short.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = beep_short.aiff; sourceTree = "<group>"; };
+		2C772EB31AE34E4800974536 /* tick_fast.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_fast.aiff; sourceTree = "<group>"; };
+		2C772EB41AE34E4800974536 /* tick_hurry.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_hurry.aiff; sourceTree = "<group>"; };
+		2C772EB81AE34E8200974536 /* bell_long.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = bell_long.aiff; sourceTree = "<group>"; };
+		2C772EB91AE34E8200974536 /* bell_moderate.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = bell_moderate.aiff; sourceTree = "<group>"; };
+		2C772EBC1AE351F400974536 /* tick_second.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_second.aiff; sourceTree = "<group>"; };
+		2C772EBE1AE3520A00974536 /* tick_medium.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_medium.aiff; sourceTree = "<group>"; };
 		2C9722371ADBE9D8008D1671 /* PomoTimerBeginner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoTimerBeginner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C97223B1ADBE9D8008D1671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +81,7 @@
 		2C97222E1ADBE9D8008D1671 = {
 			isa = PBXGroup;
 			children = (
+				2C772EB01AE141D000974536 /* Settings.bundle */,
 				2C9722391ADBE9D8008D1671 /* PomoTimerBeginner */,
 				2C97224F1ADBE9D8008D1671 /* PomoTimerBeginnerTests */,
 				2C9722381ADBE9D8008D1671 /* Products */,
@@ -99,6 +116,13 @@
 		2C97223A1ADBE9D8008D1671 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2C772EB21AE34E4800974536 /* beep_short.aiff */,
+				2C772EBC1AE351F400974536 /* tick_second.aiff */,
+				2C772EB31AE34E4800974536 /* tick_fast.aiff */,
+				2C772EB41AE34E4800974536 /* tick_hurry.aiff */,
+				2C772EBE1AE3520A00974536 /* tick_medium.aiff */,
+				2C772EB81AE34E8200974536 /* bell_long.aiff */,
+				2C772EB91AE34E8200974536 /* bell_moderate.aiff */,
 				2C97223B1ADBE9D8008D1671 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -201,6 +225,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C772EBA1AE34E8200974536 /* bell_long.aiff in Resources */,
+				2C772EB71AE34E4800974536 /* tick_hurry.aiff in Resources */,
+				2C772EB11AE141D000974536 /* Settings.bundle in Resources */,
+				2C772EB51AE34E4800974536 /* beep_short.aiff in Resources */,
+				2C772EBD1AE351F400974536 /* tick_second.aiff in Resources */,
+				2C772EB61AE34E4800974536 /* tick_fast.aiff in Resources */,
+				2C772EBB1AE34E8200974536 /* bell_moderate.aiff in Resources */,
+				2C772EBF1AE3520A00974536 /* tick_medium.aiff in Resources */,
 				2C9722421ADBE9D8008D1671 /* Main.storyboard in Resources */,
 				2C9722471ADBE9D8008D1671 /* LaunchScreen.xib in Resources */,
 				2C9722441ADBE9D8008D1671 /* Images.xcassets in Resources */,

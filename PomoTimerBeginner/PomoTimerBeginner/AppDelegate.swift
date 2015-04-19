@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         serializeLoad()
         
+        let isFirstLaunch: Bool = NSUserDefaults.standardUserDefaults().boolForKey("setting_copied")
+        if isFirstLaunch == false {
+            registerDefaultsFromSettings()
+            NSUserDefaults.standardUserDefaults().setBool(true , forKey: "setting_copied")
+        }
         return true
     }
 
@@ -46,6 +51,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         serializeSave()
     }
 
+    func registerDefaultsFromSettings() {
+        var settingsBundle = NSBundle.mainBundle().pathForResource("Settings", ofType: "bundle")
+        if settingsBundle == nil {
+            println("Could not find Settings.bundle")
+            return
+        }
+        var settings = NSDictionary(contentsOfFile:settingsBundle!.stringByAppendingPathComponent("Root.plist"))!
+        var preferences: [NSDictionary] = settings.objectForKey("PreferenceSpecifiers") as [NSDictionary];
+        var defaultsToRegister = NSMutableDictionary(capacity:(preferences.count));
+        
+        for prefSpecification:NSDictionary in preferences {
+            //var key: NSCopying? = prefSpecification.objectForKey("Key") as NSCopying?
+            //if key != nil {
+                //defaultsToRegister.setObject(prefSpecification.objectForKey("DefaultValue")!, forKey: key!)
+            //}
+            if let key = prefSpecification.objectForKey("Key") as? NSCopying {
+                defaultsToRegister.setObject(prefSpecification.objectForKey("DefaultValue")!, forKey: key)
+            }
+        }
+            
+        NSUserDefaults.standardUserDefaults().registerDefaults(defaultsToRegister);
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    
     func serializeSave() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let todayKeyString : String = dateToString(NSDate())
