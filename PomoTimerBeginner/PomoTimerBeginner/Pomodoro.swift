@@ -14,8 +14,8 @@ enum PomoType {
     
     var initialTime : Int { get {
         switch self {
-        case .Task : return 25 * 60
-        case .SBreak : return 5 * 60
+        case .Task : return 70//25 * 60
+        case .SBreak : return 70//5 * 60
         case .LBreak : return 30 * 60
         }
     }}
@@ -33,11 +33,14 @@ enum Status : Int {
     }}
 }
 
+var audioPlayer = PomoAudioPlayer()
 class Pomodoro : NSObject {
 //struct Pomodoro {
     //static var taskTimer : NSTimer?
+    
     var time : Int {
         didSet {
+            if time == 60 { audioPlayer.playChime() }
             if time < 0 { status = .DONE }
         }
     }
@@ -46,11 +49,18 @@ class Pomodoro : NSObject {
     
     var status : Status {
         didSet {
-            if oldValue == .READY && status == .COUNTING {
-                self.startDate = NSDate()
-            }
-            if oldValue == .COUNTING && status == .DONE {
-                self.endDate = NSDate()
+            switch status {
+                case .COUNTING:
+                    audioPlayer.playTick(self)
+                    if oldValue == .READY { self.startDate = NSDate() }
+                case .PAUSE:
+                    audioPlayer.stopTick(self)
+                case .DONE:
+                    if oldValue == .COUNTING {
+                        self.endDate = NSDate()
+                        audioPlayer.playAlarm()
+                    }
+                default: ()
             }
         }
     }

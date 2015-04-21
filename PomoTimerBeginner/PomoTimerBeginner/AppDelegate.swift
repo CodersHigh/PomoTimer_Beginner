@@ -133,6 +133,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         taskVC.currentCycle = currentCycle
         //taskVC.updateUI()
     }
+    
+    //MARK: iCloud Key-Value
+    func updateToiCloud(notificationObject: NSNotification) {
+        let dict:NSDictionary = NSUserDefaults.standardUserDefaults().dictionaryRepresentation()
+        
+        dict.enumerateKeysAndObjectsUsingBlock({key, value, stop in
+            var newKey = key as NSString
+            NSUbiquitousKeyValueStore.defaultStore().setObject(value, forKey: newKey)
+        })
+        
+        NSUbiquitousKeyValueStore.defaultStore().synchronize()
+    }
+    
+    func updateFromiCloud(notificationObject: NSNotification) {
+        let iCloudStore = NSUbiquitousKeyValueStore.defaultStore()
+        let dict: NSDictionary = iCloudStore.dictionaryRepresentation
+        
+        // prevent NSUserDefaultsDidChangeNotification from being posted while we update from iCloud
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:NSUserDefaultsDidChangeNotification, object:nil)
+        
+        dict.enumerateKeysAndObjectsUsingBlock({key, value, stop in
+            var newKey = key as NSString
+            
+            NSUserDefaults.standardUserDefaults().setObject(value, forKey:newKey)
+        })
+        
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        // enable NSUserDefaultsDidChangeNotification notifications again
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"updateToiCloud:", name:NSUserDefaultsDidChangeNotification, object:nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("iCloudSyncDidUpdateToLatest", object:nil)
+    }
+    
+    func startiCloudSync() {
+        if ((NSClassFromString("NSUbiquitousKeyValueStore")) != nil) {
+            if NSFileManager.defaultManager().ubiquityIdentityToken != nil {
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateFromiCloud:", name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: nil)
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateToiCloud:", name: NSUserDefaultsDidChangeNotification, object: nil)
+            } else {
+                println("iCloud Not Enabled")
+            }
+        } else {
+            println("Not an iOS 6 or higher device")
+        }
+    }
 }
 
 func dateToString(date : NSDate) -> String {

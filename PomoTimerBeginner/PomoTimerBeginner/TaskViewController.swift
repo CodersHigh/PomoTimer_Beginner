@@ -82,7 +82,7 @@ class TaskViewController: UIViewController {
             timeLabel.text = currentTask.timeString
         }
         cycleCountButton.setTitle("\(todays.count-1)", forState: .Normal)
-        updateAudio()
+        //updateAudio()
     }
     
     func updateAudio () {
@@ -95,6 +95,7 @@ class TaskViewController: UIViewController {
                     audioPlayer.stopTick(currentTask)
                 case .DONE:
                     println("Done chatched")
+                    audioPlayer.playAlarm()
                 default: ()
             }
         }
@@ -138,7 +139,7 @@ class PomoAudioPlayer {
     init() {
         let tastTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_medium", withExtension: "aiff")!
         taskTickPlayer = AVAudioPlayer(contentsOfURL:tastTickFile, error: nil)
-        taskTickPlayer.volume = 1.0
+        taskTickPlayer.volume = 0.6
         taskTickPlayer.numberOfLoops = -1
 
         let tastTickRushFile:NSURL = NSBundle.mainBundle().URLForResource("tick_hurry", withExtension: "aiff")!
@@ -156,30 +157,53 @@ class PomoAudioPlayer {
         minuteBellPlayer.volume = 1.0
         minuteBellPlayer.numberOfLoops = 1
         
-        let timeoutBellFile:NSURL = NSBundle.mainBundle().URLForResource("bell_moderate", withExtension: "aiff")!
+        let timeoutBellFile:NSURL = NSBundle.mainBundle().URLForResource("bell_long", withExtension: "aiff")!
         timeoutBellPlayer = AVAudioPlayer(contentsOfURL:timeoutBellFile, error: nil)
-        timeoutBellPlayer.volume = 1.0
+        timeoutBellPlayer.volume = 0.6
         timeoutBellPlayer.numberOfLoops = 0
+        
+        
+        updateDefaultAudio(NSNotification(name: NSUserDefaultsDidChangeNotification, object: nil))
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"updateDefaultAudio:", name:NSUserDefaultsDidChangeNotification, object:nil)
+    }
+    
+    @objc func updateDefaultAudio(notification: NSNotification) {
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+        let tickInBackground = NSUserDefaults.standardUserDefaults().boolForKey("tick_bkg_preference")
+        if tickInBackground {
+            AVAudioSession.sharedInstance().setActive(true, error: nil)
+            UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        } else {
+            AVAudioSession.sharedInstance().setActive(false, error: nil)
+            UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+        }
     }
     
     func playTick(task:Pomodoro) {
-        switch task.type! {
-        case .Task:
-            if task.time > 60 {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let tickValue = userDefault.boolForKey("tick_preference")
+        if tickValue == false { return }
+        
+//        switch task.type! {
+//        case .Task:
+//            if task.time > 60 {
+                if breakTickPlayer.playing { breakTickPlayer.stop() }
                 if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
                 if taskTickPlayer.playing == false {
                     taskTickPlayer.play()
                 }
-            } else {
-                if taskTickPlayer.playing { taskTickPlayer.stop() }
-                if taskTickRushPlayer.playing == false {
-                    taskTickRushPlayer.play()
-                }
-            }
+//            } else {
+//                if taskTickPlayer.playing { taskTickPlayer.stop() }
+//                if taskTickRushPlayer.playing == false {
+//                    taskTickRushPlayer.play()
+//                }
+//            }
             
-        default:
-            breakTickPlayer.play()
-        }
+//        default:
+//            if taskTickPlayer.playing { taskTickPlayer.stop() }
+//            if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
+//            breakTickPlayer.play()
+//        }
     }
     
     func stopTick(task:Pomodoro) {
@@ -189,6 +213,18 @@ class PomoAudioPlayer {
     }
     
     func playChime() {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let chimeValue = userDefault.boolForKey("chime_preference")
+        if chimeValue == false { return }
+        
         minuteBellPlayer.play()
+    }
+    
+    func playAlarm() {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let alarmValue = userDefault.boolForKey("alarm_preference")
+        if alarmValue == false { return }
+        
+        timeoutBellPlayer.play()
     }
 }

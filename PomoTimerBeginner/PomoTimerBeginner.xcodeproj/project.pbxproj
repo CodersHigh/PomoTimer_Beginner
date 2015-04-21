@@ -45,14 +45,15 @@
 		2C772EB91AE34E8200974536 /* bell_moderate.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = bell_moderate.aiff; sourceTree = "<group>"; };
 		2C772EBC1AE351F400974536 /* tick_second.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_second.aiff; sourceTree = "<group>"; };
 		2C772EBE1AE3520A00974536 /* tick_medium.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_medium.aiff; sourceTree = "<group>"; };
-		2C9722371ADBE9D8008D1671 /* PomoTimerBeginner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoTimerBeginner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C772EC01AE39D2F00974536 /* PomoTimerBeginner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PomoTimerBeginner.entitlements; sourceTree = "<group>"; };
+		2C9722371ADBE9D8008D1671 /* PomoTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C97223B1ADBE9D8008D1671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		2C9722411ADBE9D8008D1671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C9722431ADBE9D8008D1671 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2C9722461ADBE9D8008D1671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		2C97224C1ADBE9D8008D1671 /* PomoTimerBeginnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTimerBeginnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C97224C1ADBE9D8008D1671 /* PomoTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9722511ADBE9D8008D1671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C9722521ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoTimerBeginnerTests.swift; sourceTree = "<group>"; };
 		2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
@@ -91,8 +92,8 @@
 		2C9722381ADBE9D8008D1671 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C9722371ADBE9D8008D1671 /* PomoTimerBeginner.app */,
-				2C97224C1ADBE9D8008D1671 /* PomoTimerBeginnerTests.xctest */,
+				2C9722371ADBE9D8008D1671 /* PomoTimer.app */,
+				2C97224C1ADBE9D8008D1671 /* PomoTimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +101,7 @@
 		2C9722391ADBE9D8008D1671 /* PomoTimerBeginner */ = {
 			isa = PBXGroup;
 			children = (
+				2C772EC01AE39D2F00974536 /* PomoTimerBeginner.entitlements */,
 				2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */,
 				2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */,
 				2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */,
@@ -148,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2C9722361ADBE9D8008D1671 /* PomoTimerBeginner */ = {
+		2C9722361ADBE9D8008D1671 /* PomoTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimerBeginner" */;
+			buildConfigurationList = 2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimer" */;
 			buildPhases = (
 				2C9722331ADBE9D8008D1671 /* Sources */,
 				2C9722341ADBE9D8008D1671 /* Frameworks */,
@@ -160,14 +162,14 @@
 			);
 			dependencies = (
 			);
-			name = PomoTimerBeginner;
+			name = PomoTimer;
 			productName = PomoTimerBeginner;
-			productReference = 2C9722371ADBE9D8008D1671 /* PomoTimerBeginner.app */;
+			productReference = 2C9722371ADBE9D8008D1671 /* PomoTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2C97224B1ADBE9D8008D1671 /* PomoTimerBeginnerTests */ = {
+		2C97224B1ADBE9D8008D1671 /* PomoTimerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C9722591ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimerBeginnerTests" */;
+			buildConfigurationList = 2C9722591ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimerTests" */;
 			buildPhases = (
 				2C9722481ADBE9D8008D1671 /* Sources */,
 				2C9722491ADBE9D8008D1671 /* Frameworks */,
@@ -178,9 +180,9 @@
 			dependencies = (
 				2C97224E1ADBE9D8008D1671 /* PBXTargetDependency */,
 			);
-			name = PomoTimerBeginnerTests;
+			name = PomoTimerTests;
 			productName = PomoTimerBeginnerTests;
-			productReference = 2C97224C1ADBE9D8008D1671 /* PomoTimerBeginnerTests.xctest */;
+			productReference = 2C97224C1ADBE9D8008D1671 /* PomoTimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -194,6 +196,15 @@
 				TargetAttributes = {
 					2C9722361ADBE9D8008D1671 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 4QG3GC35LA;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					2C97224B1ADBE9D8008D1671 = {
 						CreatedOnToolsVersion = 6.2;
@@ -214,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2C9722361ADBE9D8008D1671 /* PomoTimerBeginner */,
-				2C97224B1ADBE9D8008D1671 /* PomoTimerBeginnerTests */,
+				2C9722361ADBE9D8008D1671 /* PomoTimer */,
+				2C97224B1ADBE9D8008D1671 /* PomoTimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,7 +285,7 @@
 /* Begin PBXTargetDependency section */
 		2C97224E1ADBE9D8008D1671 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2C9722361ADBE9D8008D1671 /* PomoTimerBeginner */;
+			target = 2C9722361ADBE9D8008D1671 /* PomoTimer */;
 			targetProxy = 2C97224D1ADBE9D8008D1671 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -382,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PomoTimerBeginner/PomoTimerBeginner.entitlements;
 				INFOPLIST_FILE = PomoTimerBeginner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -393,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PomoTimerBeginner/PomoTimerBeginner.entitlements;
 				INFOPLIST_FILE = PomoTimerBeginner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -414,7 +427,7 @@
 				);
 				INFOPLIST_FILE = PomoTimerBeginnerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PomoTimerTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PomoTimerBeginner.app/PomoTimerBeginner";
 			};
 			name = Debug;
@@ -429,7 +442,7 @@
 				);
 				INFOPLIST_FILE = PomoTimerBeginnerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PomoTimerTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PomoTimerBeginner.app/PomoTimerBeginner";
 			};
 			name = Release;
@@ -446,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimerBeginner" */ = {
+		2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C9722571ADBE9D8008D1671 /* Debug */,
@@ -455,7 +468,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C9722591ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimerBeginnerTests" */ = {
+		2C9722591ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C97225A1ADBE9D8008D1671 /* Debug */,
