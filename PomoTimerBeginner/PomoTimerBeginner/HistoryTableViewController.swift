@@ -18,6 +18,9 @@ struct HistoryData {
 
 class HistoryTableViewController: UITableViewController {
     
+    @IBOutlet weak var daysLabel: UILabel!
+    @IBOutlet weak var pomodorosLabel: UILabel!
+    
     var historyData:[String:[HistoryData]] = [:]
 
     override func viewDidLoad() {
@@ -25,10 +28,16 @@ class HistoryTableViewController: UITableViewController {
         loadHistoryData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        daysLabel.text = ""
+        pomodorosLabel.text = ""
+        
+    }
     func loadHistoryData() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        //var _historyData:[String:[HistoryData]] = [:]
-        if let historyDictionary = defaults.dictionaryForKey("History") as? [String:[String:Int]]{
+        
+        //if let historyDictionary = defaults.dictionaryForKey("History") as? [String:[String:Int]]{
+        if let historyDictionary = historyDummy(){
             for (dateKey, tasksValue) in historyDictionary {
                 var oneDayRecord = HistoryData()
                 let dateArray:[String] = dateKey.componentsSeparatedByString("-") as [String]
@@ -40,12 +49,20 @@ class HistoryTableViewController: UITableViewController {
                 let keyString = "\(oneDayRecord.date.year)-\(oneDayRecord.date.month)"
                 if var monthlyTask:[HistoryData] = historyData[keyString] {
                     monthlyTask += [oneDayRecord]
+                    historyData[keyString] = monthlyTask
                 } else {
                     var monthlyTask:[HistoryData] = [oneDayRecord]
                     historyData[keyString] = monthlyTask
                 }
             }
         }
+    }
+    
+    func historyDummy() -> [String:[String:Int]]? {
+        let historyDictionary = ["2015-01-29":["Cycles":1,"Tasks":2],"2015-01-30":["Cycles":1,"Tasks":3], "2015-01-31":["Cycles":2,"Tasks":3], "2015-02-01":["Cycles":2,"Tasks":1], "2015-02-02":["Cycles":1,"Tasks":3],
+            "2015-02-03":["Cycles":1,"Tasks":1], "2015-02-04":["Cycles":1,"Tasks":3]]
+        
+        return historyDictionary
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

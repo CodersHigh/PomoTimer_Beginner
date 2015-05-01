@@ -44,6 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        //환경설정 읽어서 반영하기 (오디오 처리 등)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let tick = defaults.boolForKey("tick_preference")
+        println("tick = \(tick)")
+        let tickBkg = defaults.boolForKey("tick_bkg_preference")
+        println("tickBkg = \(tickBkg)")
+        let chime = defaults.boolForKey("chime_preference")
+        println("chime = \(chime)")
+        let alarm = defaults.boolForKey("alarm_preference")
+        println("alarm = \(alarm)")
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -62,10 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var defaultsToRegister = NSMutableDictionary(capacity:(preferences.count));
         
         for prefSpecification:NSDictionary in preferences {
-            //var key: NSCopying? = prefSpecification.objectForKey("Key") as NSCopying?
-            //if key != nil {
-                //defaultsToRegister.setObject(prefSpecification.objectForKey("DefaultValue")!, forKey: key!)
-            //}
             if let key = prefSpecification.objectForKey("Key") as? NSCopying {
                 defaultsToRegister.setObject(prefSpecification.objectForKey("DefaultValue")!, forKey: key)
             }
@@ -75,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    
+    //Tuple이 바로 저장되지 않기 때문에 [NSObject:AnyObject]의 NSDictionary로 저장.
     func serializeSave() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let todayKeyString : String = dateToString(NSDate())

@@ -45,7 +45,7 @@ class Pomodoro : NSObject {
         }
     }
 
-    var type : PomoType!
+    var type : PomoType
     
     var status : Status {
         didSet {

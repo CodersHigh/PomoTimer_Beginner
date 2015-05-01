@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -145,7 +145,7 @@
             </objects>
             <point key="canvasLocation" x="349" y="519"/>
         </scene>
-        <!--뽀모도로 기록-->
+        <!--Pomodoro History-->
         <scene sceneID="wjs-Gd-BXE">
             <objects>
                 <tableViewController id="Tqn-hY-ftR" customClass="HistoryTableViewController" customModule="PomoTimer" customModuleProvider="target" sceneMemberID="viewController">
@@ -153,6 +153,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="wEc-hf-PBG">
+                            <rect key="frame" x="0.0" y="64" width="320" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From May 1 2015 ~ Feb 17 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-jx-6cV">
+                                    <rect key="frame" x="8" y="8" width="304" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="125 Pomodoro (31Cycle + 1), 3125 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPb-wa-FQ1">
+                                    <rect key="frame" x="8" y="32" width="304" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="58" id="rgF-Xa-34K" customClass="HistoryTableViewCell" customModule="PomoTimer" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -216,7 +235,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="RU0-Da-lZr" secondAttribute="centerY" id="xQp-Lb-6Ud"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbu-Vp-X32">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21th" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbu-Vp-X32">
                                             <rect key="frame" x="16" y="18" width="40" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="776-7k-RvY"/>
@@ -250,7 +269,7 @@
                             <outlet property="delegate" destination="Tqn-hY-ftR" id="j1N-0C-Jxp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="뽀모도로 기록" id="74l-3b-XC0">
+                    <navigationItem key="navigationItem" title="Pomodoro History" id="74l-3b-XC0">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="KDA-KP-llP">
                             <connections>
                                 <action selector="dismiss:" destination="Tqn-hY-ftR" id="fwF-tN-Mw6"/>
@@ -258,6 +277,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="daysLabel" destination="Suh-jx-6cV" id="bp1-82-rY2"/>
+                        <outlet property="pomodorosLabel" destination="ZPb-wa-FQ1" id="cXI-BO-8jV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qaj-Kc-6ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
