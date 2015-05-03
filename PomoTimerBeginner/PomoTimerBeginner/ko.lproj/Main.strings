@@ -1,0 +1,27 @@
+
+/* Class = "UINavigationItem"; title = "Pomodoro History"; ObjectID = "74l-3b-XC0"; */
+"74l-3b-XC0.title" = "뽀모도로 기록";
+
+/* Class = "UILabel"; text = "21th"; ObjectID = "Bbu-Vp-X32"; */
+"Bbu-Vp-X32.text" = "21일";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "DUy-A1-seQ"; */
+"DUy-A1-seQ.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "25:00"; ObjectID = "FIX-j3-HYs"; */
+"FIX-j3-HYs.text" = "25:00";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "O1O-KM-SLD"; */
+"O1O-KM-SLD.normalTitle" = "시작";
+
+/* Class = "UILabel"; text = "From May 1 2015 ~ Feb 17 2016"; ObjectID = "Suh-jx-6cV"; */
+"Suh-jx-6cV.text" = "From May 1 2015 ~ Feb 17 2016";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "UQS-8q-1Zc"; */
+"UQS-8q-1Zc.normalTitle" = "재설정";
+
+/* Class = "UILabel"; text = "125 Pomodoro (31 + 1), 3125 min"; ObjectID = "ZPb-wa-FQ1"; */
+"ZPb-wa-FQ1.text" = "125 Pomodoro (31 + 1), 3125 min";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "nWZ-aw-D6s"; */
+"nWZ-aw-D6s.normalTitle" = "0";

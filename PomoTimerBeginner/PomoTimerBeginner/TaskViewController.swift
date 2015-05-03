@@ -57,7 +57,7 @@ class TaskViewController: UIViewController {
         }
         
         if let activeTimer = timer {
-            startPauseButton.setTitle("Pause", forState: .Normal)
+            startPauseButton.setTitle(NSLocalizedString("task_pause", comment:""), forState: .Normal)
             if let workingTask :Int = currentCycle.indexOfCurrentTask {
                 let animation = CABasicAnimation(keyPath: "opacity")
                 animation.fromValue = 1.0
@@ -72,9 +72,9 @@ class TaskViewController: UIViewController {
         } else {
             if let currentTask = currentCycle.currentTask {
                 if currentTask.status == .PAUSE {
-                    startPauseButton.setTitle("Resume", forState: .Normal)
+                    startPauseButton.setTitle(NSLocalizedString("task_resume", comment:""), forState: .Normal)
                 } else {
-                    startPauseButton.setTitle("Start", forState: .Normal)
+                    startPauseButton.setTitle(NSLocalizedString("task_start", comment:""), forState: .Normal)
                 }
             }
         }

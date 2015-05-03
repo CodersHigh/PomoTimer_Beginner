@@ -24,6 +24,7 @@
 		2C97225D1ADBEAB0008D1671 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */; };
 		2C97225F1ADCCCA1008D1671 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225E1ADCCCA1008D1671 /* RoundButton.swift */; };
 		2C97AD8E1AF4F14300C86819 /* CustomViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C97AD8C1AF4F14300C86819 /* CustomViews.xib */; };
+		2CC2356A1AF5EA7700E7A311 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC235681AF5EA7700E7A311 /* Localizable.strings */; };
 		2CD9ABE51ADF6CE8008EF86F /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,11 @@
 		2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 		2C97225E1ADCCCA1008D1671 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		2C97AD8D1AF4F14300C86819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CustomViews.xib; sourceTree = "<group>"; };
+		2CC235651AF5E91B00E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		2CC235661AF5E91B00E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/CustomViews.strings; sourceTree = "<group>"; };
+		2CC235671AF5E91B00E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2CC235691AF5EA7700E7A311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CC2356B1AF5EA9500E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +115,7 @@
 				2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */,
 				2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */,
 				2C97225E1ADCCCA1008D1671 /* RoundButton.swift */,
+				2CC235681AF5EA7700E7A311 /* Localizable.strings */,
 				2C9722401ADBE9D8008D1671 /* Main.storyboard */,
 				2C97AD8C1AF4F14300C86819 /* CustomViews.xib */,
 				2C9722431ADBE9D8008D1671 /* Images.xcassets */,
@@ -222,6 +229,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 2C97222E1ADBE9D8008D1671;
 			productRefGroup = 2C9722381ADBE9D8008D1671 /* Products */;
@@ -249,6 +257,7 @@
 				2C772EBB1AE34E8200974536 /* bell_moderate.aiff in Resources */,
 				2C772EBF1AE3520A00974536 /* tick_medium.aiff in Resources */,
 				2C9722421ADBE9D8008D1671 /* Main.storyboard in Resources */,
+				2CC2356A1AF5EA7700E7A311 /* Localizable.strings in Resources */,
 				2C9722471ADBE9D8008D1671 /* LaunchScreen.xib in Resources */,
 				2C9722441ADBE9D8008D1671 /* Images.xcassets in Resources */,
 			);
@@ -299,6 +308,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C9722411ADBE9D8008D1671 /* Base */,
+				2CC235651AF5E91B00E7A311 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -307,6 +317,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C9722461ADBE9D8008D1671 /* Base */,
+				2CC235671AF5E91B00E7A311 /* ko */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -315,8 +326,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C97AD8D1AF4F14300C86819 /* Base */,
+				2CC235661AF5E91B00E7A311 /* ko */,
 			);
 			name = CustomViews.xib;
+			sourceTree = "<group>";
+		};
+		2CC235681AF5EA7700E7A311 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CC235691AF5EA7700E7A311 /* Base */,
+				2CC2356B1AF5EA9500E7A311 /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

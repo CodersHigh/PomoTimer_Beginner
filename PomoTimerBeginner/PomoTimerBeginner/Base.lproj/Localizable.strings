@@ -1,0 +1,18 @@
+/* 
+  File.strings
+  PomoTimerBeginner
+
+  Created by Lingostar on 2015. 5. 3..
+  Copyright (c) 2015년 Lingostar. All rights reserved.
+*/
+
+task_start = "Start";
+task_pause = "Pause";
+task_resume = "Resume";
+
+history_duration = "From %@ ~ %@";
+history_pomodoro = "Pomodoro";
+history_minute = "min";
+history_year_month = "MMM yyyy";
+history_day = "%dth";
+history_year_month_day = "MMM d yyyy";

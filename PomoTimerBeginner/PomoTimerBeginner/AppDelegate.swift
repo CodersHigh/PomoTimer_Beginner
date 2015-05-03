@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         var settings = NSDictionary(contentsOfFile:settingsBundle!.stringByAppendingPathComponent("Root.plist"))!
-        var preferences: [NSDictionary] = settings.objectForKey("PreferenceSpecifiers") as [NSDictionary];
+        var preferences: [NSDictionary] = settings.objectForKey("PreferenceSpecifiers") as! [NSDictionary];
         var defaultsToRegister = NSMutableDictionary(capacity:(preferences.count));
         
         for prefSpecification:NSDictionary in preferences {
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
             
-        NSUserDefaults.standardUserDefaults().registerDefaults(defaultsToRegister);
+        NSUserDefaults.standardUserDefaults().registerDefaults(defaultsToRegister as [NSObject : AnyObject]);
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func todayPomodoroInfo () -> [String:Int] {
-        let taskVC = window?.rootViewController as TaskViewController
+        let taskVC = window?.rootViewController as! TaskViewController
         var infoDictionary:[String:Int] = [:]
         infoDictionary["Cycles"] = taskVC.todays.count - 1
         infoDictionary["Tasks"] = taskVC.todays.last?.doneTasks.count
@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         todaysPomodoro += [currentCycle]
         
-        let taskVC = window?.rootViewController as TaskViewController
+        let taskVC = window?.rootViewController as! TaskViewController
         taskVC.todays = todaysPomodoro
         taskVC.currentCycle = currentCycle
         //taskVC.updateUI()
@@ -147,8 +147,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dict:NSDictionary = NSUserDefaults.standardUserDefaults().dictionaryRepresentation()
         
         dict.enumerateKeysAndObjectsUsingBlock({key, value, stop in
-            var newKey = key as NSString
-            NSUbiquitousKeyValueStore.defaultStore().setObject(value, forKey: newKey)
+            var newKey = key as! NSString
+            NSUbiquitousKeyValueStore.defaultStore().setObject(value, forKey: newKey as String)
         })
         
         NSUbiquitousKeyValueStore.defaultStore().synchronize()
@@ -162,9 +162,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:NSUserDefaultsDidChangeNotification, object:nil)
         
         dict.enumerateKeysAndObjectsUsingBlock({key, value, stop in
-            var newKey = key as NSString
+            var newKey = key as! NSString
             
-            NSUserDefaults.standardUserDefaults().setObject(value, forKey:newKey)
+            NSUserDefaults.standardUserDefaults().setObject(value, forKey:newKey as String)
         })
         
         NSUserDefaults.standardUserDefaults().synchronize()
