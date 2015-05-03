@@ -157,20 +157,30 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From May 1 2015 ~ Feb 17 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-jx-6cV">
-                                    <rect key="frame" x="8" y="8" width="304" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From May 1 2015 ~ Feb 17 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-jx-6cV">
+                                    <rect key="frame" x="8" y="12" width="304" height="17"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="125 Pomodoro (31Cycle + 1), 3125 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPb-wa-FQ1">
-                                    <rect key="frame" x="8" y="32" width="304" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="125 Pomodoro (31Cycle + 1), 3125 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPb-wa-FQ1">
+                                    <rect key="frame" x="8" y="37" width="304" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Suh-jx-6cV" firstAttribute="top" secondItem="wEc-hf-PBG" secondAttribute="top" constant="12" id="6r4-Jv-2dg"/>
+                                <constraint firstAttribute="centerX" secondItem="Suh-jx-6cV" secondAttribute="centerX" id="FxC-YS-H1V"/>
+                                <constraint firstItem="ZPb-wa-FQ1" firstAttribute="leading" secondItem="wEc-hf-PBG" secondAttribute="leading" constant="8" id="IPF-Df-RBt"/>
+                                <constraint firstAttribute="trailing" secondItem="ZPb-wa-FQ1" secondAttribute="trailing" constant="8" id="ONw-8p-ref"/>
+                                <constraint firstAttribute="trailing" secondItem="Suh-jx-6cV" secondAttribute="trailing" constant="8" id="OvN-dS-Mzo"/>
+                                <constraint firstItem="Suh-jx-6cV" firstAttribute="leading" secondItem="wEc-hf-PBG" secondAttribute="leading" constant="8" id="ZmS-4J-ZSQ"/>
+                                <constraint firstAttribute="centerX" secondItem="ZPb-wa-FQ1" secondAttribute="centerX" id="jeU-QZ-9Et"/>
+                                <constraint firstItem="ZPb-wa-FQ1" firstAttribute="top" secondItem="Suh-jx-6cV" secondAttribute="bottom" constant="8" symbolic="YES" id="ptp-lT-bi9"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="58" id="rgF-Xa-34K" customClass="HistoryTableViewCell" customModule="PomoTimer" customModuleProvider="target">
@@ -181,39 +191,39 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tm6-GI-WKo">
                                             <rect key="frame" x="64" y="-1" width="256" height="60"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="ew2-m0-6vY">
-                                                    <rect key="frame" x="204" y="21" width="20" height="20"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="ew2-m0-6vY">
+                                                    <rect key="frame" x="206" y="22" width="16" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="PNp-nD-EBv"/>
-                                                        <constraint firstAttribute="width" constant="20" id="ZwR-5R-sYZ"/>
+                                                        <constraint firstAttribute="height" constant="16" id="PNp-nD-EBv"/>
+                                                        <constraint firstAttribute="width" constant="16" id="ZwR-5R-sYZ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="eVE-2x-wkd">
-                                                    <rect key="frame" x="160" y="21" width="20" height="20"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="eVE-2x-wkd">
+                                                    <rect key="frame" x="162" y="22" width="16" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="irq-Wo-NX0"/>
-                                                        <constraint firstAttribute="height" constant="20" id="z3b-CH-moL"/>
+                                                        <constraint firstAttribute="width" constant="16" id="irq-Wo-NX0"/>
+                                                        <constraint firstAttribute="height" constant="16" id="z3b-CH-moL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="RU0-Da-lZr">
-                                                    <rect key="frame" x="118" y="21" width="20" height="20"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="RU0-Da-lZr">
+                                                    <rect key="frame" x="120" y="22" width="16" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="nW1-z2-JmP"/>
-                                                        <constraint firstAttribute="height" constant="20" id="yRK-U5-znC"/>
+                                                        <constraint firstAttribute="width" constant="16" id="nW1-z2-JmP"/>
+                                                        <constraint firstAttribute="height" constant="16" id="yRK-U5-znC"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-iQ-ChO">
-                                                    <rect key="frame" x="76" y="21" width="20" height="20"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Pomodoro_Dimmed" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-iQ-ChO">
+                                                    <rect key="frame" x="78" y="22" width="16" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="Lrt-ww-63k"/>
-                                                        <constraint firstAttribute="height" constant="20" id="Mf5-JN-BQC"/>
+                                                        <constraint firstAttribute="width" constant="16" id="Lrt-ww-63k"/>
+                                                        <constraint firstAttribute="height" constant="16" id="Mf5-JN-BQC"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUy-A1-seQ" customClass="CircleButton" customModule="PomoTimer" customModuleProvider="target">
-                                                    <rect key="frame" x="22" y="11" width="40" height="40"/>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUy-A1-seQ" customClass="CircleButton" customModule="PomoTimer" customModuleProvider="target">
+                                                    <rect key="frame" x="27" y="15" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="0Lh-z8-2Bt"/>
-                                                        <constraint firstAttribute="width" constant="40" id="sWP-8O-fwo"/>
+                                                        <constraint firstAttribute="height" constant="30" id="0Lh-z8-2Bt"/>
+                                                        <constraint firstAttribute="width" constant="30" id="sWP-8O-fwo"/>
                                                     </constraints>
                                                     <state key="normal" title="0">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -284,7 +294,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qaj-Kc-6ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752" y="519"/>
+            <point key="canvasLocation" x="1775" y="519"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I7v-X5-aNG">

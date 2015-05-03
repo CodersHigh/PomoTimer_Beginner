@@ -23,6 +23,7 @@
 		2C9722531ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9722521ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift */; };
 		2C97225D1ADBEAB0008D1671 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */; };
 		2C97225F1ADCCCA1008D1671 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225E1ADCCCA1008D1671 /* RoundButton.swift */; };
+		2C97AD8E1AF4F14300C86819 /* CustomViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C97AD8C1AF4F14300C86819 /* CustomViews.xib */; };
 		2CD9ABE51ADF6CE8008EF86F /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		2C9722521ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomoTimerBeginnerTests.swift; sourceTree = "<group>"; };
 		2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 		2C97225E1ADCCCA1008D1671 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		2C97AD8D1AF4F14300C86819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CustomViews.xib; sourceTree = "<group>"; };
 		2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */,
 				2C97225E1ADCCCA1008D1671 /* RoundButton.swift */,
 				2C9722401ADBE9D8008D1671 /* Main.storyboard */,
+				2C97AD8C1AF4F14300C86819 /* CustomViews.xib */,
 				2C9722431ADBE9D8008D1671 /* Images.xcassets */,
 				2C9722451ADBE9D8008D1671 /* LaunchScreen.xib */,
 				2C97223A1ADBE9D8008D1671 /* Supporting Files */,
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C772EBA1AE34E8200974536 /* bell_long.aiff in Resources */,
+				2C97AD8E1AF4F14300C86819 /* CustomViews.xib in Resources */,
 				2C772EB71AE34E4800974536 /* tick_hurry.aiff in Resources */,
 				2C772EB11AE141D000974536 /* Settings.bundle in Resources */,
 				2C772EB51AE34E4800974536 /* beep_short.aiff in Resources */,
@@ -305,6 +309,14 @@
 				2C9722461ADBE9D8008D1671 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		2C97AD8C1AF4F14300C86819 /* CustomViews.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C97AD8D1AF4F14300C86819 /* Base */,
+			);
+			name = CustomViews.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
