@@ -8,6 +8,8 @@
 
 import UIKit
 
+let isAppStore = false
+
 struct HistoryData: Comparable {
     var date:(year:Int, month:Int, day:Int) = (0,0,0)
     var dailyPomodoro:(cycle:Int, task:Int) = (0,0)
@@ -90,27 +92,38 @@ class HistoryTableViewController: UITableViewController {
     
     func loadHistoryData() {
         let defaults = NSUserDefaults.standardUserDefaults()
-                //if let historyDictionary = defaults.dictionaryForKey("History") as? [String:[String:Int]]{
-        if let historyDictionary = historyDummy(){
+        if let historyDictionary = defaults.dictionaryForKey("History") as? [String:[String:Int]]{
+        //if let historyDictionary = historyDummy(){
             for (dateKey, tasksValue) in historyDictionary {
                 var oneDayRecord = HistoryData()
                 let dateArray:[String] = dateKey.componentsSeparatedByString("-") as [String]
                 oneDayRecord.date = (dateArray[0].toInt()!, dateArray[1].toInt()!, dateArray[2].toInt()!)
                 oneDayRecord.dailyPomodoro = (tasksValue["Cycles"]!, tasksValue["Tasks"]!)
 
-                // dictionary이므로 "년-월"로 이루어진 키에 History데이터들의 어레이가 있는 방식으로 만듬.
-                //년도를 따로 관리해서 합산을 하진 않음.
-                //년-월로 키를 만들어서 만약 해당 키의 어레이가 있으면 더하고 없으면 어레이를 새로 만들어야 함.
-                let keyString = oneDayRecord.keyString
-                if var monthlyTask:[HistoryData] = historyData[keyString] {
-                    monthlyTask += [oneDayRecord]
-                    let sortedTask = monthlyTask.sorted({$0.date.day < $1.date.day})
-                    historyData[keyString] = sortedTask
+                if isAppStore {
+                    if validateData(oneDayRecord) {
+                        addToMonthDictionary(oneDayRecord)
+                    }
                 } else {
-                    var monthlyTask:[HistoryData] = [oneDayRecord]
-                    historyData[keyString] = monthlyTask
+                    addToMonthDictionary(oneDayRecord)
                 }
             }
+        }
+    }
+    
+    func addToMonthDictionary(data:HistoryData) {
+        // dictionary이므로 "년-월"로 이루어진 키에 History데이터들의 어레이가 있는 방식으로 만듬.
+        //년도를 따로 관리해서 합산을 하진 않음.
+        //년-월로 키를 만들어서 만약 해당 키의 어레이가 있으면 더하고 없으면 어레이를 새로 만들어야 함.
+        
+        let keyString = data.keyString
+        if var monthlyTask:[HistoryData] = historyData[keyString] {
+            monthlyTask += [data]
+            let sortedTask = monthlyTask.sorted({$0.date.day < $1.date.day})
+            historyData[keyString] = sortedTask
+        } else {
+            var monthlyTask:[HistoryData] = [data]
+            historyData[keyString] = monthlyTask
         }
     }
     
@@ -126,11 +139,12 @@ class HistoryTableViewController: UITableViewController {
     }
     
     func historyDummy() -> [String:[String:Int]]? {
-        let historyDictionary = ["2015-01-29":["Cycles":1,"Tasks":2],"2015-01-30":["Cycles":1,"Tasks":3], "2015-01-31":["Cycles":2,"Tasks":3], "2015-02-01":["Cycles":2,"Tasks":1], "2015-02-02":["Cycles":1,"Tasks":3],
-            "2015-02-03":["Cycles":1,"Tasks":1], "2015-02-04":["Cycles":1,"Tasks":3]]
+        let historyDictionary = ["2015-02-27":["Cycles":0,"Tasks":3], "2015-02-28":["Cycles":1,"Tasks":2], "2015-03-28":["Cycles":1,"Tasks":1], "2015-03-29":["Cycles":1,"Tasks":2],"2015-03-30":["Cycles":1,"Tasks":3], "2015-03-31":["Cycles":2,"Tasks":3], "2015-04-01":["Cycles":2,"Tasks":1], "2015-04-02":["Cycles":1,"Tasks":3],"2015-04-03":["Cycles":1,"Tasks":1], "2015-04-04":["Cycles":1,"Tasks":3]]
         
         return historyDictionary
     }
+    
+
     
     func totalDescriptionAttrString(pomodoro:Int, fontSize:CGFloat) -> NSAttributedString {
         var descString = NSMutableAttributedString()

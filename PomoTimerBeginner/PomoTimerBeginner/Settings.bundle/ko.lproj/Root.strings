@@ -1,7 +1,13 @@
 "Sound" = "사운드";
-"Tick Sound" = "틱톡 사운드";
+"Tick Sound" = "틱톡 소리";
+"Tick in Background" = "배경모드에서 틱톡 소리";
+
+"Alarm" = "알람"
 "Alarm Sound" = "알람 사운드";
-"1 Minute Chime"="1분 알림";
+"1 Minute Chime"="1분전 알림";
+
+"Screen" = "화면";
+"Sleep" = "잠자기";
 
 "none given" = "none given";
 "Enabled" = "Enabled";

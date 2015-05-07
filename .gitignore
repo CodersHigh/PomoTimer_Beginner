@@ -31,3 +31,5 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+
+PomoTimerBeginner/PomoTimerBeginner/Validate.swift

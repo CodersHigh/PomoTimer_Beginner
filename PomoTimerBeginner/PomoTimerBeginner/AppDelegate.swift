@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             registerDefaultsFromSettings()
             NSUserDefaults.standardUserDefaults().setBool(true , forKey: "setting_copied")
         }
+        
+        startiCloudSync()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUbiquityIdentityDidChangeNotification:", name: NSUbiquityIdentityDidChangeNotification, object: nil)
+        
         return true
     }
 
@@ -48,13 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //환경설정 읽어서 반영하기 (오디오 처리 등)
         NSUserDefaults.standardUserDefaults().synchronize()
         let defaults = NSUserDefaults.standardUserDefaults()
-        let tick = defaults.boolForKey("tick_preference")
+        let tick = defaults.boolForKey(Constants.UserDefaultKeys.kTick)
         println("tick = \(tick)")
-        let tickBkg = defaults.boolForKey("tick_bkg_preference")
+        let tickBkg = defaults.boolForKey(Constants.UserDefaultKeys.kTickBackground)
         println("tickBkg = \(tickBkg)")
-        let chime = defaults.boolForKey("chime_preference")
+        let chime = defaults.boolForKey(Constants.UserDefaultKeys.kChime)
         println("chime = \(chime)")
-        let alarm = defaults.boolForKey("alarm_preference")
+        let alarm = defaults.boolForKey(Constants.UserDefaultKeys.kAlarm)
         println("alarm = \(alarm)")
     }
 
@@ -98,7 +102,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.setObject(historyDictionary, forKey: "History")
             println("Newly Saved = \(historyDictionary[todayKeyString])")
         }
-        
         
         defaults.synchronize()
     }

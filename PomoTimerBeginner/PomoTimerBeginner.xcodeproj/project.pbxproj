@@ -24,7 +24,11 @@
 		2C97225D1ADBEAB0008D1671 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */; };
 		2C97225F1ADCCCA1008D1671 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225E1ADCCCA1008D1671 /* RoundButton.swift */; };
 		2C97AD8E1AF4F14300C86819 /* CustomViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C97AD8C1AF4F14300C86819 /* CustomViews.xib */; };
+		2CB40E911AF9F1FF00944B1C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB40E901AF9F1FF00944B1C /* SettingsTableViewController.swift */; };
+		2CB40E951AFA36C600944B1C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB40E941AFA36C600944B1C /* Constants.swift */; };
+		2CB40E971AFA3BEE00944B1C /* tick_break.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CB40E961AFA3BEE00944B1C /* tick_break.caf */; };
 		2CC2356A1AF5EA7700E7A311 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC235681AF5EA7700E7A311 /* Localizable.strings */; };
+		2CC235961AF7413600E7A311 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC235951AF7413600E7A311 /* Validate.swift */; };
 		2CD9ABE51ADF6CE8008EF86F /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +42,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2CC235941AF71E1C00E7A311 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2C772EB01AE141D000974536 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = PomoTimerBeginner/Settings.bundle; sourceTree = "<group>"; };
 		2C772EB21AE34E4800974536 /* beep_short.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = beep_short.aiff; sourceTree = "<group>"; };
@@ -48,7 +65,7 @@
 		2C772EBC1AE351F400974536 /* tick_second.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_second.aiff; sourceTree = "<group>"; };
 		2C772EBE1AE3520A00974536 /* tick_medium.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick_medium.aiff; sourceTree = "<group>"; };
 		2C772EC01AE39D2F00974536 /* PomoTimerBeginner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PomoTimerBeginner.entitlements; sourceTree = "<group>"; };
-		2C9722371ADBE9D8008D1671 /* PomoTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C9722371ADBE9D8008D1671 /* WatchToWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchToWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C97223B1ADBE9D8008D1671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -61,11 +78,24 @@
 		2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 		2C97225E1ADCCCA1008D1671 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		2C97AD8D1AF4F14300C86819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CustomViews.xib; sourceTree = "<group>"; };
-		2CC235651AF5E91B00E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		2CB40E901AF9F1FF00944B1C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		2CB40E931AFA312700944B1C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		2CB40E941AFA36C600944B1C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2CB40E961AFA3BEE00944B1C /* tick_break.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick_break.caf; sourceTree = "<group>"; };
 		2CC235661AF5E91B00E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/CustomViews.strings; sourceTree = "<group>"; };
 		2CC235671AF5E91B00E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2CC235691AF5EA7700E7A311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CC2356B1AF5EA9500E7A311 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CC235731AF71E1C00E7A311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CC235741AF71E1C00E7A311 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		2CC235751AF71E1C00E7A311 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		2CC235771AF71E1C00E7A311 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		2CC235791AF71E1C00E7A311 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		2CC2357B1AF71E1C00E7A311 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2CC235851AF71E1C00E7A311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CC235871AF71E1C00E7A311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2CC235891AF71E1C00E7A311 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2CC235951AF7413600E7A311 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +123,8 @@
 				2C772EB01AE141D000974536 /* Settings.bundle */,
 				2C9722391ADBE9D8008D1671 /* PomoTimerBeginner */,
 				2C97224F1ADBE9D8008D1671 /* PomoTimerBeginnerTests */,
+				2CC235711AF71E1C00E7A311 /* WatchToWork WatchKit Extension */,
+				2CC235831AF71E1C00E7A311 /* WatchToWork WatchKit App */,
 				2C9722381ADBE9D8008D1671 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +132,7 @@
 		2C9722381ADBE9D8008D1671 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C9722371ADBE9D8008D1671 /* PomoTimer.app */,
+				2C9722371ADBE9D8008D1671 /* WatchToWork.app */,
 				2C97224C1ADBE9D8008D1671 /* PomoTimerTests.xctest */,
 			);
 			name = Products;
@@ -113,6 +145,9 @@
 				2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */,
 				2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */,
 				2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */,
+				2CB40E901AF9F1FF00944B1C /* SettingsTableViewController.swift */,
+				2CC235951AF7413600E7A311 /* Validate.swift */,
+				2CB40E941AFA36C600944B1C /* Constants.swift */,
 				2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */,
 				2C97225E1ADCCCA1008D1671 /* RoundButton.swift */,
 				2CC235681AF5EA7700E7A311 /* Localizable.strings */,
@@ -130,6 +165,7 @@
 			children = (
 				2C772EB21AE34E4800974536 /* beep_short.aiff */,
 				2C772EBC1AE351F400974536 /* tick_second.aiff */,
+				2CB40E961AFA3BEE00944B1C /* tick_break.caf */,
 				2C772EB31AE34E4800974536 /* tick_fast.aiff */,
 				2C772EB41AE34E4800974536 /* tick_hurry.aiff */,
 				2C772EBE1AE3520A00974536 /* tick_medium.aiff */,
@@ -157,24 +193,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2CC235711AF71E1C00E7A311 /* WatchToWork WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2CC235751AF71E1C00E7A311 /* InterfaceController.swift */,
+				2CC235771AF71E1C00E7A311 /* NotificationController.swift */,
+				2CC235791AF71E1C00E7A311 /* GlanceController.swift */,
+				2CC2357B1AF71E1C00E7A311 /* Images.xcassets */,
+				2CC235721AF71E1C00E7A311 /* Supporting Files */,
+			);
+			path = "WatchToWork WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		2CC235721AF71E1C00E7A311 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2CC235731AF71E1C00E7A311 /* Info.plist */,
+				2CC235741AF71E1C00E7A311 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CC235831AF71E1C00E7A311 /* WatchToWork WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				2CC235861AF71E1C00E7A311 /* Interface.storyboard */,
+				2CC235891AF71E1C00E7A311 /* Images.xcassets */,
+				2CC235841AF71E1C00E7A311 /* Supporting Files */,
+			);
+			path = "WatchToWork WatchKit App";
+			sourceTree = "<group>";
+		};
+		2CC235841AF71E1C00E7A311 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2CC235851AF71E1C00E7A311 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2C9722361ADBE9D8008D1671 /* PomoTimer */ = {
+		2C9722361ADBE9D8008D1671 /* WatchToWork */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimer" */;
+			buildConfigurationList = 2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "WatchToWork" */;
 			buildPhases = (
 				2C9722331ADBE9D8008D1671 /* Sources */,
 				2C9722341ADBE9D8008D1671 /* Frameworks */,
 				2C9722351ADBE9D8008D1671 /* Resources */,
+				2CC235941AF71E1C00E7A311 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = PomoTimer;
+			name = WatchToWork;
 			productName = PomoTimerBeginner;
-			productReference = 2C9722371ADBE9D8008D1671 /* PomoTimer.app */;
+			productReference = 2C9722371ADBE9D8008D1671 /* WatchToWork.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2C97224B1ADBE9D8008D1671 /* PomoTimerTests */ = {
@@ -236,7 +312,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2C9722361ADBE9D8008D1671 /* PomoTimer */,
+				2C9722361ADBE9D8008D1671 /* WatchToWork */,
 				2C97224B1ADBE9D8008D1671 /* PomoTimerTests */,
 			);
 		};
@@ -248,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C772EBA1AE34E8200974536 /* bell_long.aiff in Resources */,
+				2CB40E971AFA3BEE00944B1C /* tick_break.caf in Resources */,
 				2C97AD8E1AF4F14300C86819 /* CustomViews.xib in Resources */,
 				2C772EB71AE34E4800974536 /* tick_hurry.aiff in Resources */,
 				2C772EB11AE141D000974536 /* Settings.bundle in Resources */,
@@ -280,8 +357,11 @@
 				2C97225F1ADCCCA1008D1671 /* RoundButton.swift in Sources */,
 				2C97223F1ADBE9D8008D1671 /* TaskViewController.swift in Sources */,
 				2C97225D1ADBEAB0008D1671 /* Pomodoro.swift in Sources */,
+				2CC235961AF7413600E7A311 /* Validate.swift in Sources */,
 				2C97223D1ADBE9D8008D1671 /* AppDelegate.swift in Sources */,
 				2CD9ABE51ADF6CE8008EF86F /* HistoryTableViewController.swift in Sources */,
+				2CB40E911AF9F1FF00944B1C /* SettingsTableViewController.swift in Sources */,
+				2CB40E951AFA36C600944B1C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +378,7 @@
 /* Begin PBXTargetDependency section */
 		2C97224E1ADBE9D8008D1671 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2C9722361ADBE9D8008D1671 /* PomoTimer */;
+			target = 2C9722361ADBE9D8008D1671 /* WatchToWork */;
 			targetProxy = 2C97224D1ADBE9D8008D1671 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -308,7 +388,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2C9722411ADBE9D8008D1671 /* Base */,
-				2CC235651AF5E91B00E7A311 /* ko */,
+				2CB40E931AFA312700944B1C /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -338,6 +418,14 @@
 				2CC2356B1AF5EA9500E7A311 /* ko */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		2CC235861AF71E1C00E7A311 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CC235871AF71E1C00E7A311 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -377,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -414,11 +502,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
 			};
 			name = Release;
 		};
@@ -426,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = PomoTimerBeginner/PomoTimerBeginner.entitlements;
 				INFOPLIST_FILE = PomoTimerBeginner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -438,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = PomoTimerBeginner/PomoTimerBeginner.entitlements;
 				INFOPLIST_FILE = PomoTimerBeginner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -492,7 +583,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "PomoTimer" */ = {
+		2C9722561ADBE9D8008D1671 /* Build configuration list for PBXNativeTarget "WatchToWork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C9722571ADBE9D8008D1671 /* Debug */,

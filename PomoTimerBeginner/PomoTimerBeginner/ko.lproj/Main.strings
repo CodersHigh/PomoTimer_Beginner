@@ -1,9 +1,15 @@
 
-/* Class = "UINavigationItem"; title = "Pomodoro History"; ObjectID = "74l-3b-XC0"; */
+/* Class = "UINavigationItem"; title = "뽀모도로 기록"; ObjectID = "74l-3b-XC0"; */
 "74l-3b-XC0.title" = "뽀모도로 기록";
 
-/* Class = "UILabel"; text = "21th"; ObjectID = "Bbu-Vp-X32"; */
+/* Class = "UIView"; accessibilityLabel = "ui_task_view"; ObjectID = "8bC-Xf-vdC"; */
+"8bC-Xf-vdC.accessibilityLabel" = "ui_task_view";
+
+/* Class = "UILabel"; text = "21일"; ObjectID = "Bbu-Vp-X32"; */
 "Bbu-Vp-X32.text" = "21일";
+
+/* Class = "UILabel"; text = "배경모드에서 틱톡 소리"; ObjectID = "CHF-Kf-q68"; */
+"CHF-Kf-q68.text" = "배경모드에서 틱톡 소리";
 
 /* Class = "UIButton"; normalTitle = "0"; ObjectID = "DUy-A1-seQ"; */
 "DUy-A1-seQ.normalTitle" = "0";
@@ -11,17 +17,65 @@
 /* Class = "UILabel"; text = "25:00"; ObjectID = "FIX-j3-HYs"; */
 "FIX-j3-HYs.text" = "25:00";
 
-/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "O1O-KM-SLD"; */
+/* Class = "UITableViewSection"; headerTitle = "틱톡 소리"; ObjectID = "GaO-Fi-YVk"; */
+"GaO-Fi-YVk.headerTitle" = "틱톡 소리";
+
+/* Class = "UILabel"; text = "알람 소리"; ObjectID = "KKM-OY-1RV"; */
+"KKM-OY-1RV.text" = "알람 소리";
+
+/* Class = "UIButton"; accessibilityLabel = "ui_start_button"; ObjectID = "O1O-KM-SLD"; */
+"O1O-KM-SLD.accessibilityLabel" = "ui_start_button";
+
+/* Class = "UIButton"; normalTitle = "시작"; ObjectID = "O1O-KM-SLD"; */
 "O1O-KM-SLD.normalTitle" = "시작";
 
-/* Class = "UILabel"; text = "From May 1 2015 ~ Feb 17 2016"; ObjectID = "Suh-jx-6cV"; */
-"Suh-jx-6cV.text" = "From May 1 2015 ~ Feb 17 2016";
+/* Class = "UITableViewSection"; headerTitle = "알람"; ObjectID = "PDt-Ry-XTM"; */
+"PDt-Ry-XTM.headerTitle" = "알람";
 
-/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "UQS-8q-1Zc"; */
+/* Class = "UILabel"; text = "2015년 2월 1일 ~ 2015년 3월 15일"; ObjectID = "Suh-jx-6cV"; */
+"Suh-jx-6cV.text" = "2015년 2월 1일 ~ 2015년 3월 15일";
+
+/* Class = "UILabel"; text = "잠자기"; ObjectID = "Ti4-VQ-yzU"; */
+"Ti4-VQ-yzU.text" = "잠자기";
+
+/* Class = "UIButton"; accessibilityLabel = "ui_reset_button"; ObjectID = "UQS-8q-1Zc"; */
+"UQS-8q-1Zc.accessibilityLabel" = "ui_reset_button";
+
+/* Class = "UIButton"; normalTitle = "재설정"; ObjectID = "UQS-8q-1Zc"; */
 "UQS-8q-1Zc.normalTitle" = "재설정";
 
-/* Class = "UILabel"; text = "125 Pomodoro (31 + 1), 3125 min"; ObjectID = "ZPb-wa-FQ1"; */
-"ZPb-wa-FQ1.text" = "125 Pomodoro (31 + 1), 3125 min";
+/* Class = "UILabel"; text = "125 뽀모도로 (31 + 1), 3125 분"; ObjectID = "ZPb-wa-FQ1"; */
+"ZPb-wa-FQ1.text" = "125 뽀모도로 (31 + 1), 3125 분";
+
+/* Class = "UILabel"; text = "1분 전 알림"; ObjectID = "bjM-xf-ZiN"; */
+"bjM-xf-ZiN.text" = "1분 전 알림";
+
+/* Class = "UITableViewSection"; footerTitle = "전원이 연결되어 있으면 화면은 잠자지 않습니다."; ObjectID = "goY-UL-FWC"; */
+"goY-UL-FWC.footerTitle" = "전원이 연결되어 있으면 화면은 잠자지 않습니다.";
+
+/* Class = "UITableViewSection"; headerTitle = "화면"; ObjectID = "goY-UL-FWC"; */
+"goY-UL-FWC.headerTitle" = "화면";
+
+/* Class = "UILabel"; text = "크기"; ObjectID = "izI-QX-dx9"; */
+"izI-QX-dx9.text" = "크기";
+
+/* Class = "UILabel"; text = "1.0"; ObjectID = "ksN-hi-10R"; */
+"ksN-hi-10R.text" = "1.0";
+
+/* Class = "UIButton"; accessibilityLabel = "ui_history_button"; ObjectID = "nWZ-aw-D6s"; */
+"nWZ-aw-D6s.accessibilityLabel" = "ui_history_button";
 
 /* Class = "UIButton"; normalTitle = "0"; ObjectID = "nWZ-aw-D6s"; */
 "nWZ-aw-D6s.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "1.0"; ObjectID = "pNs-fy-WKV"; */
+"pNs-fy-WKV.text" = "1.0";
+
+/* Class = "UILabel"; text = "틱톡 소리"; ObjectID = "r7j-bO-uat"; */
+"r7j-bO-uat.text" = "틱톡 소리";
+
+/* Class = "UINavigationItem"; title = "설정"; ObjectID = "rHP-9a-GiW"; */
+"rHP-9a-GiW.title" = "설정";
+
+/* Class = "UILabel"; text = "크기"; ObjectID = "u1a-I4-kws"; */
+"u1a-I4-kws.text" = "크기";

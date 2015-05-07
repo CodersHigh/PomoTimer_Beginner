@@ -89,10 +89,10 @@ class TaskViewController: UIViewController {
         if let currentTask = currentCycle.currentTask {
             switch currentTask.status{
                 case .COUNTING:
-                    audioPlayer.playTick(currentTask)
+                    audioPlayer.setTick(currentTask)
                     if currentTask.time == 60 { audioPlayer.playChime() }
                 case .PAUSE:
-                    audioPlayer.stopTick(currentTask)
+                    audioPlayer.stopTick()
                 case .DONE:
                     println("Done chatched")
                     audioPlayer.playAlarm()
@@ -129,28 +129,34 @@ class TaskViewController: UIViewController {
 
 
 class PomoAudioPlayer {
-    var taskTickPlayer:AVAudioPlayer
-    var taskTickRushPlayer:AVAudioPlayer
-    var breakTickPlayer:AVAudioPlayer
-    var minuteBellPlayer:AVAudioPlayer
-    var timeoutBellPlayer:AVAudioPlayer
+    let taskTickPlayer:AVAudioPlayer
+    let taskTickRushPlayer:AVAudioPlayer
+    let breakTickPlayer:AVAudioPlayer
+    let minuteBellPlayer:AVAudioPlayer
+    let timeoutBellPlayer:AVAudioPlayer
     //var alarmPlayer:AVAudioPlayer
-
+    
+    var currentTickPlayer:AVAudioPlayer?
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    
     init() {
         let tastTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_medium", withExtension: "aiff")!
         taskTickPlayer = AVAudioPlayer(contentsOfURL:tastTickFile, error: nil)
-        taskTickPlayer.volume = 0.6
+        taskTickPlayer.volume = 1.0
         taskTickPlayer.numberOfLoops = -1
+        taskTickPlayer.prepareToPlay()
 
         let tastTickRushFile:NSURL = NSBundle.mainBundle().URLForResource("tick_hurry", withExtension: "aiff")!
         taskTickRushPlayer = AVAudioPlayer(contentsOfURL:tastTickRushFile, error: nil)
         taskTickRushPlayer.volume = 1.0
         taskTickRushPlayer.numberOfLoops = -1
         
-        let breakTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_second", withExtension: "aiff")!
+        let breakTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_break", withExtension: "caf")!
         breakTickPlayer = AVAudioPlayer(contentsOfURL:breakTickFile, error: nil)
         breakTickPlayer.volume = 1.0
         breakTickPlayer.numberOfLoops = -1
+        breakTickPlayer.prepareToPlay()
         
         let minuteBellFile:NSURL = NSBundle.mainBundle().URLForResource("beep_short", withExtension: "aiff")!
         minuteBellPlayer = AVAudioPlayer(contentsOfURL:minuteBellFile, error: nil)
@@ -168,8 +174,17 @@ class PomoAudioPlayer {
     }
     
     @objc func updateDefaultAudio(notification: NSNotification) {
+        //노티피케이션을 통해 넘어오는 데이터가 없으므로 오디오와 관련된 모든 사용자 정보를 업데이트 해야 함.
+        
+        let tick = userDefaults.boolForKey(Constants.UserDefaultKeys.kTick)
+        if tick {
+            playTick()
+        } else {
+            stopTick()
+        }
+        
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-        let tickInBackground = NSUserDefaults.standardUserDefaults().boolForKey("tick_bkg_preference")
+        let tickInBackground = userDefaults.boolForKey(Constants.UserDefaultKeys.kTickBackground)
         if tickInBackground {
             AVAudioSession.sharedInstance().setActive(true, error: nil)
             UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
@@ -177,21 +192,26 @@ class PomoAudioPlayer {
             AVAudioSession.sharedInstance().setActive(false, error: nil)
             UIApplication.sharedApplication().endReceivingRemoteControlEvents()
         }
+        
+        let volume = userDefaults.floatForKey(Constants.UserDefaultKeys.kTickVolume)
+        taskTickPlayer.volume = volume
+        taskTickRushPlayer.volume = volume
+        breakTickPlayer.volume = volume
     }
     
-    func playTick(task:Pomodoro) {
-        let userDefault = NSUserDefaults.standardUserDefaults()
-        let tickValue = userDefault.boolForKey("tick_preference")
+    func setTick(task:Pomodoro) {
+        let tickValue = userDefaults.boolForKey(Constants.UserDefaultKeys.kTick)
         if tickValue == false { return }
         
-//        switch task.type! {
-//        case .Task:
+        switch task.type {
+        case .Task:
 //            if task.time > 60 {
-                if breakTickPlayer.playing { breakTickPlayer.stop() }
-                if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
-                if taskTickPlayer.playing == false {
-                    taskTickPlayer.play()
-                }
+//                if breakTickPlayer.playing { breakTickPlayer.stop() }
+//                if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
+//                if taskTickPlayer.playing == false {
+//                    taskTickPlayer.play()
+//                }
+            currentTickPlayer = taskTickPlayer
 //            } else {
 //                if taskTickPlayer.playing { taskTickPlayer.stop() }
 //                if taskTickRushPlayer.playing == false {
@@ -199,16 +219,26 @@ class PomoAudioPlayer {
 //                }
 //            }
             
-//        default:
+        default:
 //            if taskTickPlayer.playing { taskTickPlayer.stop() }
 //            if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
 //            breakTickPlayer.play()
-//        }
+            currentTickPlayer = breakTickPlayer
+        }
+        
+        playTick()
     }
     
-    func stopTick(task:Pomodoro) {
-        if taskTickPlayer.playing {
-            taskTickPlayer.stop()
+    func playTick () {
+        if let player = currentTickPlayer {
+            player.play()
+            
+        }
+    }
+    
+    func stopTick() {
+        if let player = currentTickPlayer {
+            player.stop()
         }
     }
     
