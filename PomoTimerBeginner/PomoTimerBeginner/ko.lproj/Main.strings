@@ -57,7 +57,7 @@
 "goY-UL-FWC.headerTitle" = "화면";
 
 /* Class = "UILabel"; text = "크기"; ObjectID = "izI-QX-dx9"; */
-"izI-QX-dx9.text" = "크기";
+"izI-QX-dx9.text" = "크기 (0 ~ 10)";
 
 /* Class = "UILabel"; text = "1.0"; ObjectID = "ksN-hi-10R"; */
 "ksN-hi-10R.text" = "1.0";
@@ -78,4 +78,4 @@
 "rHP-9a-GiW.title" = "설정";
 
 /* Class = "UILabel"; text = "크기"; ObjectID = "u1a-I4-kws"; */
-"u1a-I4-kws.text" = "크기";
+"u1a-I4-kws.text" = "크기 (0 ~ 10)";

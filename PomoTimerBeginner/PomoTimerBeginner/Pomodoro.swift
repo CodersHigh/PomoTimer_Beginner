@@ -14,9 +14,9 @@ enum PomoType {
     
     var initialTime : Int { get {
         switch self {
-        case .Task : return 25 * 60
-        case .SBreak : return 5 * 60
-        case .LBreak : return 30 * 60
+        case .Task : return 25// * 60
+        case .SBreak : return 5// * 60
+        case .LBreak : return 30// * 60
         }
     }}
 }
@@ -54,10 +54,11 @@ class Pomodoro : NSObject {
                     audioPlayer.setTick(self)
                     if oldValue == .READY { self.startDate = NSDate() }
                 case .PAUSE:
-                    audioPlayer.stopTick()
+                    audioPlayer.clearTick()
                 case .DONE:
                     if oldValue == .COUNTING {
                         self.endDate = NSDate()
+                        audioPlayer.clearTick()
                         audioPlayer.playAlarm()
                     }
                 default: ()

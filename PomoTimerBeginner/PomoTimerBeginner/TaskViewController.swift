@@ -14,6 +14,7 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var cycleCountButton: CircleButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startPauseButton: RoundButton!
+    @IBOutlet weak var resetSkipButton: RoundButton!
     
     @IBOutlet var pomodoroImages: [UIImageView]!
     
@@ -68,6 +69,14 @@ class TaskViewController: UIViewController {
                 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 
                 self.pomodoroImages[workingTask].layer.addAnimation(animation, forKey:"pulse")
+                //resetSkipButton.removeTarget(self, action: "skip:", forControlEvents: UIControlEvents.TouchUpInside)
+                resetSkipButton.removeTarget(self, action: "skip:", forControlEvents: UIControlEvents.TouchUpInside)
+                resetSkipButton.addTarget(self, action: "reset:", forControlEvents: UIControlEvents.TouchUpInside)
+                resetSkipButton.setTitle(NSLocalizedString("task_reset", comment:""), forState: .Normal)
+            } else {
+                resetSkipButton.removeTarget(self, action: "reset:", forControlEvents: UIControlEvents.TouchUpInside)
+                resetSkipButton.addTarget(self, action: "skip:", forControlEvents: UIControlEvents.TouchUpInside)
+                resetSkipButton.setTitle(NSLocalizedString("task_skip", comment:""), forState: .Normal)
             }
         } else {
             if let currentTask = currentCycle.currentTask {
@@ -124,7 +133,20 @@ class TaskViewController: UIViewController {
         //startPauseButton.setTitle("Start", forState: .Normal)
     }
     
-    
+    @IBAction func skip(sender: AnyObject) {
+        if let activeTimer = timer {
+            activeTimer.invalidate()
+            timer = nil
+        }
+        
+        if let currentTask = currentCycle.currentTask {
+            currentTask.status = .DONE
+        }
+        
+        if let currentTask = currentCycle.currentTask {
+            updateUI()
+        }
+    }
 }
 
 
@@ -193,46 +215,35 @@ class PomoAudioPlayer {
             UIApplication.sharedApplication().endReceivingRemoteControlEvents()
         }
         
-        let volume = userDefaults.floatForKey(Constants.UserDefaultKeys.kTickVolume)
-        taskTickPlayer.volume = volume
-        taskTickRushPlayer.volume = volume
-        breakTickPlayer.volume = volume
+        let volume = Float(userDefaults.integerForKey(Constants.UserDefaultKeys.kTickVolume))
+        taskTickPlayer.volume = Float(volume / 10.0)
+        taskTickRushPlayer.volume = Float(volume / 10.0)
+        breakTickPlayer.volume = Float(volume / 10.0)
     }
     
     func setTick(task:Pomodoro) {
+        clearTick()
+        
         let tickValue = userDefaults.boolForKey(Constants.UserDefaultKeys.kTick)
         if tickValue == false { return }
-        
         switch task.type {
         case .Task:
-//            if task.time > 60 {
-//                if breakTickPlayer.playing { breakTickPlayer.stop() }
-//                if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
-//                if taskTickPlayer.playing == false {
-//                    taskTickPlayer.play()
-//                }
             currentTickPlayer = taskTickPlayer
-//            } else {
-//                if taskTickPlayer.playing { taskTickPlayer.stop() }
-//                if taskTickRushPlayer.playing == false {
-//                    taskTickRushPlayer.play()
-//                }
-//            }
-            
         default:
-//            if taskTickPlayer.playing { taskTickPlayer.stop() }
-//            if taskTickRushPlayer.playing { taskTickRushPlayer.stop() }
-//            breakTickPlayer.play()
             currentTickPlayer = breakTickPlayer
         }
         
         playTick()
     }
     
+    func clearTick() {
+        stopTick()
+        currentTickPlayer = nil
+    }
+    
     func playTick () {
         if let player = currentTickPlayer {
             player.play()
-            
         }
     }
     

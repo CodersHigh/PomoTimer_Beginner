@@ -36,11 +36,11 @@
 			<key>Key</key>
 			<string>tick_volume_preference</string>
 			<key>DefaultValue</key>
-			<real>1</real>
+			<integer>10</integer>
 			<key>MinimumValue</key>
 			<real>0</real>
 			<key>MaximumValue</key>
-			<real>1</real>
+			<integer>10</integer>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -74,11 +74,11 @@
 			<key>Key</key>
 			<string>alarm_volume_preference</string>
 			<key>DefaultValue</key>
-			<real>1</real>
+			<integer>10</integer>
 			<key>MinimumValue</key>
 			<real>0</real>
 			<key>MaximumValue</key>
-			<real>1</real>
+			<integer>10</integer>
 		</dict>
 		<dict>
 			<key>Type</key>

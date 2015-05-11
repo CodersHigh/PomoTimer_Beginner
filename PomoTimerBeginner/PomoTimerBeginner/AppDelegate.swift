@@ -12,17 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let userDefaults = NSUserDefaults.standardUserDefaults()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         serializeLoad()
         
-        let isFirstLaunch: Bool = NSUserDefaults.standardUserDefaults().boolForKey("setting_copied")
+        let isFirstLaunch: Bool = userDefaults.boolForKey("setting_copied")
         if isFirstLaunch == false {
+            println("FirstLaunch")
             registerDefaultsFromSettings()
-            NSUserDefaults.standardUserDefaults().setBool(true , forKey: "setting_copied")
+            userDefaults.setBool(true , forKey: "setting_copied")
+//            userDefaults.setInteger(10, forKey: Constants.UserDefaultKeys.kTickVolume)
+//            userDefaults.setInteger(10, forKey: Constants.UserDefaultKeys.kAlarmVolume)
         }
         
         startiCloudSync()
@@ -50,16 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
         //환경설정 읽어서 반영하기 (오디오 처리 등)
-        NSUserDefaults.standardUserDefaults().synchronize()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let tick = defaults.boolForKey(Constants.UserDefaultKeys.kTick)
-        println("tick = \(tick)")
-        let tickBkg = defaults.boolForKey(Constants.UserDefaultKeys.kTickBackground)
-        println("tickBkg = \(tickBkg)")
-        let chime = defaults.boolForKey(Constants.UserDefaultKeys.kChime)
-        println("chime = \(chime)")
-        let alarm = defaults.boolForKey(Constants.UserDefaultKeys.kAlarm)
-        println("alarm = \(alarm)")
+//        NSUserDefaults.standardUserDefaults().synchronize()
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        let tick = defaults.boolForKey(Constants.UserDefaultKeys.kTick)
+//        println("tick = \(tick)")
+//        let tickBkg = defaults.boolForKey(Constants.UserDefaultKeys.kTickBackground)
+//        println("tickBkg = \(tickBkg)")
+//        let chime = defaults.boolForKey(Constants.UserDefaultKeys.kChime)
+//        println("chime = \(chime)")
+//        let alarm = defaults.boolForKey(Constants.UserDefaultKeys.kAlarm)
+//        println("alarm = \(alarm)")
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -74,17 +77,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         var settings = NSDictionary(contentsOfFile:settingsBundle!.stringByAppendingPathComponent("Root.plist"))!
-        var preferences: [NSDictionary] = settings.objectForKey("PreferenceSpecifiers") as! [NSDictionary];
-        var defaultsToRegister = NSMutableDictionary(capacity:(preferences.count));
+        var preferences: [[NSObject : AnyObject]] = settings.objectForKey("PreferenceSpecifiers") as! [[NSObject : AnyObject]];
+        var defaultsToRegister = [:];
         
         for prefSpecification:NSDictionary in preferences {
-            if let key = prefSpecification.objectForKey("Key") as? NSCopying {
-                defaultsToRegister.setObject(prefSpecification.objectForKey("DefaultValue")!, forKey: key)
+            if let key : String = prefSpecification.objectForKey("Key") as? String {
+                let value = prefSpecification.objectForKey("DefaultValue")!
+                println("key = \(key) , value = \(value)")
+                
+                if ((key == "alarm_volume_preference") || (key == "tick_volume_preference")) {
+                    userDefaults.setInteger(Int(value as! NSNumber), forKey: key)
+                } else {
+                    userDefaults.setBool(Bool(value as! NSNumber), forKey: key)
+                }
             }
         }
-            
-        NSUserDefaults.standardUserDefaults().registerDefaults(defaultsToRegister as [NSObject : AnyObject]);
-        NSUserDefaults.standardUserDefaults().synchronize()
+        println("\(defaultsToRegister)")
+
+        userDefaults.synchronize()
     }
     
     //Tuple이 바로 저장되지 않기 때문에 [NSObject:AnyObject]의 NSDictionary로 저장.

@@ -9,6 +9,9 @@
 task_start = "Start";
 task_pause = "Pause";
 task_resume = "Resume";
+task_skip = "Skip";
+task_reset = "Reset";
+
 
 history_duration = "From %@ ~ %@";
 history_pomodoro = "Pomodoro";

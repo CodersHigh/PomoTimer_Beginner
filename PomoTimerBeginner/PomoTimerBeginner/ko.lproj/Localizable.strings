@@ -9,6 +9,8 @@
 task_start = "시작";
 task_pause = "멈춤";
 task_resume = "재개";
+task_skip = "생략";
+task_reset = "재설정";
 
 history_duration = "%@ 부터 %@ 까지";
 history_pomodoro = "뽀모도로";
