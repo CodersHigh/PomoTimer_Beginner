@@ -14,9 +14,9 @@ enum PomoType {
     
     var initialTime : Int { get {
         switch self {
-        case .Task : return 25 * 60
-        case .SBreak : return 5 * 60
-        case .LBreak : return 30 * 60
+        case .Task : return 25 * 6
+        case .SBreak : return 5 * 6
+        case .LBreak : return 30 * 6
         }
     }}
 }

@@ -11,6 +11,7 @@ import Foundation
 struct Constants{
     struct UserDefaultKeys {
         static let AppEnterBkgDate = "AppEnterBackgroundDate"
+        static let AppTerminateDate = "AppTerminateDate"
         static let kTick = "tick_preference"
         static let kTickBackground = "tick_bkg_preference"
         static let kTickVolume = "tick_volume_preference"

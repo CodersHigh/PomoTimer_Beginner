@@ -24,12 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("FirstLaunch")
             registerDefaultsFromSettings()
             userDefaults.setBool(true , forKey: "setting_copied")
-//            userDefaults.setInteger(10, forKey: Constants.UserDefaultKeys.kTickVolume)
-//            userDefaults.setInteger(10, forKey: Constants.UserDefaultKeys.kAlarmVolume)
         }
         
         startiCloudSync()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUbiquityIdentityDidChangeNotification:", name: NSUbiquityIdentityDidChangeNotification, object: nil)
+        
+        let settings = (UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound)
+        let userSettings = UIUserNotificationSettings(forTypes: settings, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(userSettings)
         
         return true
     }
@@ -42,11 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        userDefaults.setObject(NSDate(), forKey: Constants.UserDefaultKeys.AppEnterBkgDate)
         serializeSave()
+        prepareForBackground()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        cleanForForeground()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -63,10 +68,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        println("chime = \(chime)")
 //        let alarm = defaults.boolForKey(Constants.UserDefaultKeys.kAlarm)
 //        println("alarm = \(alarm)")
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let taskVC = self.window?.rootViewController as! TaskViewController
+        if let currentTask = taskVC.currentCycle.currentTask {
+            if currentTask.status == .COUNTING {
+                currentTask.status = .DONE
+            }
+        }
+        userDefaults.setObject(NSDate(), forKey: Constants.UserDefaultKeys.AppTerminateDate)
         serializeSave()
     }
 
@@ -155,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //taskVC.updateUI()
     }
     
-    //MARK: iCloud Key-Value
+    //MARK: - iCloud Key-Value
     func updateToiCloud(notificationObject: NSNotification) {
         let dict:NSDictionary = NSUserDefaults.standardUserDefaults().dictionaryRepresentation()
         
@@ -198,6 +211,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             println("Not an iOS 6 or higher device")
         }
+    }
+    
+    //MARK: - Notification
+    func prepareForBackground () {
+        let taskVC = self.window?.rootViewController as! TaskViewController
+        if let currentTask = taskVC.currentCycle.currentTask {
+            if currentTask.status == .COUNTING {
+                let timeLeft = currentTask.time
+                let taskEndNoti:UILocalNotification = UILocalNotification()
+                taskEndNoti.fireDate = NSDate(timeIntervalSinceNow: Double(timeLeft))
+                taskEndNoti.alertBody = "Pomodoro Done"
+                taskEndNoti.alertAction = "Continue"
+                UIApplication.sharedApplication().scheduleLocalNotification(taskEndNoti)
+            }
+        }
+    }
+    
+    func cleanForForeground() {
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
 }
 
