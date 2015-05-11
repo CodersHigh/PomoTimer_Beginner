@@ -41,15 +41,18 @@ class TaskViewController: UIViewController {
     
     func updateTask() {
         if let activeTimer = timer {
-            if currentCycle.currentTask == nil {
-                currentCycle = Cycle()
-                todays += [currentCycle]
-            }
-            
+            checkCycleDone()
             currentCycle.progress()
         }
         
         updateUI()
+    }
+    
+    func checkCycleDone () {
+        if currentCycle.currentTask == nil {
+            currentCycle = Cycle()
+            todays += [currentCycle]
+        }
     }
     
     func updateUI() {
@@ -134,18 +137,17 @@ class TaskViewController: UIViewController {
     }
     
     @IBAction func skip(sender: AnyObject) {
+        if let currentTask = currentCycle.currentTask {
+            currentTask.status = .DONE
+
+        }
+        checkCycleDone()
+        
         if let activeTimer = timer {
             activeTimer.invalidate()
             timer = nil
         }
-        
-        if let currentTask = currentCycle.currentTask {
-            currentTask.status = .DONE
-        }
-        
-        if let currentTask = currentCycle.currentTask {
-            updateUI()
-        }
+        updateUI()
     }
 }
 
