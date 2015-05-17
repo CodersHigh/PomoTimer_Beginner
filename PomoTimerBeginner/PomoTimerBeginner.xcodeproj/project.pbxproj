@@ -18,7 +18,7 @@
 		2C97223D1ADBE9D8008D1671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */; };
 		2C97223F1ADBE9D8008D1671 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */; };
 		2C9722421ADBE9D8008D1671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9722401ADBE9D8008D1671 /* Main.storyboard */; };
-		2C9722441ADBE9D8008D1671 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9722431ADBE9D8008D1671 /* Images.xcassets */; };
+		2C9722441ADBE9D8008D1671 /* AppImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9722431ADBE9D8008D1671 /* AppImages.xcassets */; };
 		2C9722471ADBE9D8008D1671 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C9722451ADBE9D8008D1671 /* LaunchScreen.xib */; };
 		2C9722531ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9722521ADBE9D8008D1671 /* PomoTimerBeginnerTests.swift */; };
 		2C97225D1ADBEAB0008D1671 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97225C1ADBEAB0008D1671 /* Pomodoro.swift */; };
@@ -29,6 +29,12 @@
 		2CB40E971AFA3BEE00944B1C /* tick_break.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2CB40E961AFA3BEE00944B1C /* tick_break.caf */; };
 		2CC2356A1AF5EA7700E7A311 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC235681AF5EA7700E7A311 /* Localizable.strings */; };
 		2CC235961AF7413600E7A311 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC235951AF7413600E7A311 /* Validate.swift */; };
+		2CC4EAE01B018E5800C7EFAF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC4EADF1B018E5800C7EFAF /* Default-568h@2x.png */; };
+		2CC4EAE61B01900800C7EFAF /* Default-iPhone6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC4EAE11B01900800C7EFAF /* Default-iPhone6.png */; };
+		2CC4EAE71B01900800C7EFAF /* Default-iPhone6Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC4EAE21B01900800C7EFAF /* Default-iPhone6Plus.png */; };
+		2CC4EAE81B01900800C7EFAF /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC4EAE31B01900800C7EFAF /* Default-Portrait@2x~ipad.png */; };
+		2CC4EAE91B01900800C7EFAF /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC4EAE41B01900800C7EFAF /* Default-Portrait~ipad.png */; };
+		2CC4EAEA1B01900800C7EFAF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC4EAE51B01900800C7EFAF /* Default@2x.png */; };
 		2CD9ABE51ADF6CE8008EF86F /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +76,7 @@
 		2C97223C1ADBE9D8008D1671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C97223E1ADBE9D8008D1671 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		2C9722411ADBE9D8008D1671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C9722431ADBE9D8008D1671 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2C9722431ADBE9D8008D1671 /* AppImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppImages.xcassets; sourceTree = "<group>"; };
 		2C9722461ADBE9D8008D1671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2C97224C1ADBE9D8008D1671 /* PomoTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9722511ADBE9D8008D1671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,11 +97,17 @@
 		2CC235751AF71E1C00E7A311 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		2CC235771AF71E1C00E7A311 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		2CC235791AF71E1C00E7A311 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
-		2CC2357B1AF71E1C00E7A311 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2CC2357B1AF71E1C00E7A311 /* WatchExtensionImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WatchExtensionImages.xcassets; sourceTree = "<group>"; };
 		2CC235851AF71E1C00E7A311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CC235871AF71E1C00E7A311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		2CC235891AF71E1C00E7A311 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2CC235891AF71E1C00E7A311 /* WatchAppImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WatchAppImages.xcassets; sourceTree = "<group>"; };
 		2CC235951AF7413600E7A311 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
+		2CC4EADF1B018E5800C7EFAF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2CC4EAE11B01900800C7EFAF /* Default-iPhone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-iPhone6.png"; sourceTree = "<group>"; };
+		2CC4EAE21B01900800C7EFAF /* Default-iPhone6Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-iPhone6Plus.png"; sourceTree = "<group>"; };
+		2CC4EAE31B01900800C7EFAF /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		2CC4EAE41B01900800C7EFAF /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		2CC4EAE51B01900800C7EFAF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2CD9ABE41ADF6CE8008EF86F /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +165,7 @@
 				2CC235681AF5EA7700E7A311 /* Localizable.strings */,
 				2C9722401ADBE9D8008D1671 /* Main.storyboard */,
 				2C97AD8C1AF4F14300C86819 /* CustomViews.xib */,
-				2C9722431ADBE9D8008D1671 /* Images.xcassets */,
+				2C9722431ADBE9D8008D1671 /* AppImages.xcassets */,
 				2C9722451ADBE9D8008D1671 /* LaunchScreen.xib */,
 				2C97223A1ADBE9D8008D1671 /* Supporting Files */,
 			);
@@ -163,6 +175,12 @@
 		2C97223A1ADBE9D8008D1671 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2CC4EADF1B018E5800C7EFAF /* Default-568h@2x.png */,
+				2CC4EAE11B01900800C7EFAF /* Default-iPhone6.png */,
+				2CC4EAE21B01900800C7EFAF /* Default-iPhone6Plus.png */,
+				2CC4EAE31B01900800C7EFAF /* Default-Portrait@2x~ipad.png */,
+				2CC4EAE41B01900800C7EFAF /* Default-Portrait~ipad.png */,
+				2CC4EAE51B01900800C7EFAF /* Default@2x.png */,
 				2C772EB21AE34E4800974536 /* beep_short.aiff */,
 				2C772EBC1AE351F400974536 /* tick_second.aiff */,
 				2CB40E961AFA3BEE00944B1C /* tick_break.caf */,
@@ -199,7 +217,7 @@
 				2CC235751AF71E1C00E7A311 /* InterfaceController.swift */,
 				2CC235771AF71E1C00E7A311 /* NotificationController.swift */,
 				2CC235791AF71E1C00E7A311 /* GlanceController.swift */,
-				2CC2357B1AF71E1C00E7A311 /* Images.xcassets */,
+				2CC2357B1AF71E1C00E7A311 /* WatchExtensionImages.xcassets */,
 				2CC235721AF71E1C00E7A311 /* Supporting Files */,
 			);
 			path = "WatchToWork WatchKit Extension";
@@ -218,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC235861AF71E1C00E7A311 /* Interface.storyboard */,
-				2CC235891AF71E1C00E7A311 /* Images.xcassets */,
+				2CC235891AF71E1C00E7A311 /* WatchAppImages.xcassets */,
 				2CC235841AF71E1C00E7A311 /* Supporting Files */,
 			);
 			path = "WatchToWork WatchKit App";
@@ -324,19 +342,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C772EBA1AE34E8200974536 /* bell_long.aiff in Resources */,
+				2CC4EAE61B01900800C7EFAF /* Default-iPhone6.png in Resources */,
 				2CB40E971AFA3BEE00944B1C /* tick_break.caf in Resources */,
 				2C97AD8E1AF4F14300C86819 /* CustomViews.xib in Resources */,
 				2C772EB71AE34E4800974536 /* tick_hurry.aiff in Resources */,
+				2CC4EAE71B01900800C7EFAF /* Default-iPhone6Plus.png in Resources */,
 				2C772EB11AE141D000974536 /* Settings.bundle in Resources */,
 				2C772EB51AE34E4800974536 /* beep_short.aiff in Resources */,
 				2C772EBD1AE351F400974536 /* tick_second.aiff in Resources */,
 				2C772EB61AE34E4800974536 /* tick_fast.aiff in Resources */,
+				2CC4EAE01B018E5800C7EFAF /* Default-568h@2x.png in Resources */,
 				2C772EBB1AE34E8200974536 /* bell_moderate.aiff in Resources */,
+				2CC4EAEA1B01900800C7EFAF /* Default@2x.png in Resources */,
+				2CC4EAE81B01900800C7EFAF /* Default-Portrait@2x~ipad.png in Resources */,
 				2C772EBF1AE3520A00974536 /* tick_medium.aiff in Resources */,
+				2CC4EAE91B01900800C7EFAF /* Default-Portrait~ipad.png in Resources */,
 				2C9722421ADBE9D8008D1671 /* Main.storyboard in Resources */,
 				2CC2356A1AF5EA7700E7A311 /* Localizable.strings in Resources */,
 				2C9722471ADBE9D8008D1671 /* LaunchScreen.xib in Resources */,
-				2C9722441ADBE9D8008D1671 /* Images.xcassets in Resources */,
+				2C9722441ADBE9D8008D1671 /* AppImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,10 +541,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = PomoTimerBeginner/PomoTimerBeginner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PomoTimerBeginner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -530,10 +557,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = PomoTimerBeginner/PomoTimerBeginner.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PomoTimerBeginner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

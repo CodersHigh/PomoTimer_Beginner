@@ -77,10 +77,12 @@ class HistoryTableViewController: UITableViewController {
         
         let historyDataArray:[[HistoryData]] = historyData.values.array
         let flatHistoryArray = historyDataArray.reduce([], combine: +)
-        let historyMinMax = minMax(flatHistoryArray)
-        let fromString = historyMinMax.min.fullDateString
-        let toString = historyMinMax.max.fullDateString
-        let daysString = fromString + " ~ " + toString
+        var daysString : String = ""
+        if let historyMinMax = minMax(flatHistoryArray) {
+            let fromString = historyMinMax.min.fullDateString
+            let toString = historyMinMax.max.fullDateString
+            daysString = fromString + " ~ " + toString
+        }
         
         let totalPomodoroArray = flatHistoryArray.map({$0.totalTask})
         let numberOfPomodoros = totalPomodoroArray.reduce(0, combine: +)
@@ -127,7 +129,8 @@ class HistoryTableViewController: UITableViewController {
         }
     }
     
-    func minMax (array : [HistoryData]) -> (min:HistoryData, max:HistoryData) {
+    func minMax (array : [HistoryData]) -> (min:HistoryData, max:HistoryData)? {
+        if array.isEmpty { return nil }
         var min = array[0]
         var max = array[0]
         for history in array {
