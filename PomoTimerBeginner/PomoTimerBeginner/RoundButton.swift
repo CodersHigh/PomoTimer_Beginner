@@ -8,9 +8,11 @@
 
 import UIKit
 
+@IBDesignable
 class RoundButton: UIButton {
     
-    override func awakeFromNib() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         self.layer.cornerRadius = 8
         self.layer.borderWidth = 2
         self.layer.borderColor = self.tintColor?.CGColor
@@ -32,7 +34,7 @@ class RoundButton: UIButton {
     
 }
 
-
+@IBDesignable
 class CircleButton: UIButton {
     
     override func awakeFromNib() {

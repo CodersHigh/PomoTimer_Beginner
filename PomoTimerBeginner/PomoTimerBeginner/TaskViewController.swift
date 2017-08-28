@@ -56,7 +56,7 @@ class TaskViewController: UIViewController {
     }
     
     func updateUI() {
-        for (index, task) in enumerate(currentCycle.tasks) {
+        for (index, task) in currentCycle.tasks.enumerate() {
             pomodoroImages[index].image = UIImage(named: task.status.imageName)
         }
         
@@ -106,7 +106,7 @@ class TaskViewController: UIViewController {
                 case .PAUSE:
                     audioPlayer.stopTick()
                 case .DONE:
-                    println("Done chatched")
+                    print("Done chatched")
                     audioPlayer.playAlarm()
                 default: ()
             }
@@ -166,29 +166,33 @@ class PomoAudioPlayer {
     
     init() {
         let tastTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_medium", withExtension: "aiff")!
-        taskTickPlayer = AVAudioPlayer(contentsOfURL:tastTickFile, error: nil)
+        do {
+            taskTickPlayer = try AVAudioPlayer(contentsOfURL:tastTickFile, fileTypeHint: nil)
+        } catch {
+            
+        }
         taskTickPlayer.volume = 1.0
         taskTickPlayer.numberOfLoops = -1
         taskTickPlayer.prepareToPlay()
 
         let tastTickRushFile:NSURL = NSBundle.mainBundle().URLForResource("tick_hurry", withExtension: "aiff")!
-        taskTickRushPlayer = AVAudioPlayer(contentsOfURL:tastTickRushFile, error: nil)
+        do { taskTickRushPlayer = try AVAudioPlayer(contentsOfURL:tastTickRushFile, fileTypeHint: nil) } catch {}
         taskTickRushPlayer.volume = 1.0
         taskTickRushPlayer.numberOfLoops = -1
         
         let breakTickFile:NSURL = NSBundle.mainBundle().URLForResource("tick_break", withExtension: "caf")!
-        breakTickPlayer = AVAudioPlayer(contentsOfURL:breakTickFile, error: nil)
+        do { breakTickPlayer = try AVAudioPlayer(contentsOfURL:breakTickFile, fileTypeHint: nil) } catch {}
         breakTickPlayer.volume = 1.0
         breakTickPlayer.numberOfLoops = -1
         breakTickPlayer.prepareToPlay()
         
         let minuteBellFile:NSURL = NSBundle.mainBundle().URLForResource("beep_short", withExtension: "aiff")!
-        minuteBellPlayer = AVAudioPlayer(contentsOfURL:minuteBellFile, error: nil)
+        do { minuteBellPlayer = try AVAudioPlayer(contentsOfURL:minuteBellFile, fileTypeHint: nil) } catch {}
         minuteBellPlayer.volume = 1.0
         minuteBellPlayer.numberOfLoops = 1
         
         let timeoutBellFile:NSURL = NSBundle.mainBundle().URLForResource("bell_long", withExtension: "aiff")!
-        timeoutBellPlayer = AVAudioPlayer(contentsOfURL:timeoutBellFile, error: nil)
+        do { timeoutBellPlayer = try AVAudioPlayer(contentsOfURL:timeoutBellFile, fileTypeHint: nil) } catch {}
         timeoutBellPlayer.volume = 0.6
         timeoutBellPlayer.numberOfLoops = 0
         
@@ -207,16 +211,16 @@ class PomoAudioPlayer {
             stopTick()
         }
         
-        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+        do{ try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)} catch {}
         let tickInBackground = userDefaults.boolForKey(Constants.UserDefaultKeys.kTickBackground)
         if tickInBackground {
-            AVAudioSession.sharedInstance().setActive(true, error: nil)
+            do {try AVAudioSession.sharedInstance().setActive(true)} catch {}
             UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         } else {
-            AVAudioSession.sharedInstance().setActive(false, error: nil)
+            do{ try AVAudioSession.sharedInstance().setActive(false)} catch {}
             UIApplication.sharedApplication().endReceivingRemoteControlEvents()
         }
-        
+      
         let volume = Float(userDefaults.integerForKey(Constants.UserDefaultKeys.kTickVolume))
         taskTickPlayer.volume = Float(volume / 10.0)
         taskTickRushPlayer.volume = Float(volume / 10.0)

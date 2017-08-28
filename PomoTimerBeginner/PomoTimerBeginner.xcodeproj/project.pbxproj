@@ -295,6 +295,7 @@
 		2C97222F1ADBE9D8008D1671 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Lingostar;
 				TargetAttributes = {
